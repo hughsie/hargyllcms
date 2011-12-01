@@ -6,6 +6,7 @@ wget http://www.argyllcms.com/Argyll_V1.3.5_src.zip
 unzip Argyll_V1.3.5_src.zip
 cp Argyll_V1.3.5/* . -Ru
 patch -p1 < contrib/no-comments-in-yajl-upstream.patch
+patch -p1 < contrib/disable-ucmm-as-no-yajl.patch
 ./autogen.sh
 make
 make distcheck

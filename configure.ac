@@ -20,11 +20,6 @@ AC_CHECK_LIB(pthread, pthread_create)
 AC_CHECK_LIB(tiff, TIFFOpen, TIFF_LIBS="-ltiff", , -lm)
 AC_SUBST([TIFF_LIBS])
 
-AC_CHECK_HEADER([yajl/yajl_common.h],
-                [YAJL_LIBS="-lyajl"],
-                [AC_MSG_ERROR([please install yajl])])
-AC_SUBST([YAJL_LIBS])
-
 AC_CHECK_LIB(X11, XOpenDisplay, X_LIBS="$X_LIBS -lX11")
 AC_CHECK_LIB(Xext, XextFindDisplay, X_LIBS="$X_LIBS -lXext",,-lX11)
 AC_CHECK_LIB(Xss, XScreenSaverSuspend, X_LIBS="$X_LIBS -lXss",,-lXext -lX11)

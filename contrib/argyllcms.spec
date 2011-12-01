@@ -14,7 +14,6 @@ BuildRequires: libXxf86vm-devel
 BuildRequires: libXinerama-devel
 BuildRequires: libXScrnSaver-devel
 BuildRequires: libXrandr-devel
-BuildRequires: yajl-devel
 Requires: udev
 
 %description

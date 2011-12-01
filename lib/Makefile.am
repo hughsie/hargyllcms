@@ -6,7 +6,6 @@ AM_CFLAGS = -DUNIX -I $(top_srcdir)/cgats -I$(top_srcdir)/gamut		\
     -I$(top_srcdir)/numlib -I$(top_srcdir)/plot -I$(top_srcdir)/profile	\
     -I$(top_srcdir)/render -I$(top_srcdir)/rspl -I$(top_srcdir)/spectro	\
     -I$(top_srcdir)/target -I$(top_srcdir)/xicc -I$(top_srcdir)/ucmm	\
-    -I$(top_srcdir)/jcnf						\
     -DUSE_LIBUSB1							\
     $(USB_CFLAGS) $(TIFF_CFLAGS)
 
@@ -24,10 +23,6 @@ libargyll_a_SOURCES += ../gamut/gammap.h ../gamut/gammap.c ../gamut/nearsmth.c .
 libargyll_a_SOURCES += ../plot/plot.h ../plot/plot.c
 
 libargyll_a_SOURCES += ../plot/vrml.h ../plot/vrml.c
-
-libargyll_a_SOURCES += ../ucmm/ucmm.h ../ucmm/ucmm.c
-
-libargyll_a_SOURCES += ../jcnf/jcnf.h ../jcnf/jcnf.c
 
 libargyll_a_SOURCES += ../profile/prof.h ../profile/profin.c ../profile/profout.c
 
