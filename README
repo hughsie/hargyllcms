@@ -1,0 +1,13 @@
+See Readme.txt for the ArgyllCMS upstream file.
+
+To build this, do the following:
+
+wget http://www.argyllcms.com/Argyll_V1.3.5_src.zip
+unzip Argyll_V1.3.5_src.zip
+cp Argyll_V1.3.5/* . -Ru
+patch -p1 < contrib/no-comments-in-yajl-upstream.patch
+./autogen.sh
+make
+make distcheck
+
+Voila! You should now have a tarball that can be used without using jam.
