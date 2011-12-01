@@ -1,0 +1,20 @@
+diff --git a/jcnf/jcnf.c b/jcnf/jcnf.c
+index 51adf4f..6cab261 100644
+--- a/jcnf/jcnf.c
++++ b/jcnf/jcnf.c
+@@ -985,13 +985,14 @@ static jc_error jcnf_write(
+ 				return jc_unknown_key_type; 
+ 			}
+ 		}
+-
++#ifdef NEVER
+ 		if (p->keys[i]->cpp_comment != NULL) {
+ 			yajl_gen_cpp_comment(g, p->keys[i]->cpp_comment, strlen(p->keys[i]->cpp_comment));
+ 		}
+ 		if (p->keys[i]->c_comment != NULL) {
+ 			yajl_gen_c_comment(g, p->keys[i]->c_comment, strlen(p->keys[i]->c_comment), 1);
+ 		}
++#endif
+ 
+ #ifdef NEVER
+ 		yajl_gen_map_open(g);
