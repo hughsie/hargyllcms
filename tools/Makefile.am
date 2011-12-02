@@ -143,7 +143,7 @@ SPECTRO_LDADD =    	\
 
 
 bin_PROGRAMS += synthcal dispwin dispread dispcal fakeread synthread	\
-	chartread spotread spec2cie average spyd2en
+	chartread spotread spec2cie average spyd2en ccxxmake
 
 synthcal_SOURCES = ../spectro/synthcal.c
 synthcal_LDADD = $(SPECTRO_LDADD)
@@ -178,6 +178,9 @@ average_LDADD = $(SPECTRO_LDADD)
 
 spyd2en_SOURCES = ../spectro/spyd2en.c ../spectro/vinflate.c
 spyd2en_LDADD = $(SPECTRO_LDADD)
+
+ccxxmake_SOURCES = ../spectro/ccxxmake.c
+ccxxmake_LDADD = $(SPECTRO_LDADD)
 
 TARGET_LDADD =   	\
 	../icc/libicc.a  	\
