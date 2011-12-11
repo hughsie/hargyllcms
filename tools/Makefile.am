@@ -283,3 +283,18 @@ zbrenttest_LDADD = $(NUMLIB_LDADD)
 soboltest_SOURCES = ../numlib/soboltest.c
 soboltest_LDADD = $(NUMLIB_LDADD)
 
+bin_PROGRAMS += iccdump icclu
+noinst_PROGRAMS = icctest
+
+iccdump_DEPENDENCIES =
+iccdump_SOURCES = ../icc/iccdump.c
+iccdump_LDADD = ../icc/libicc.a
+
+icclu_DEPENDENCIES =
+icclu_SOURCES = ../icc/icclu.c
+icclu_LDADD = ../icc/libicc.a
+
+icctest_DEPENDENCIES =
+icctest_SOURCES = ../icc/icctest.c
+icctest_LDADD = ../icc/libicc.a
+
