@@ -1,0 +1,1 @@
+scp *.tar.* hughsient@people.freedesktop.org:public_html/releases/
