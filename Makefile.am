@@ -26,4 +26,4 @@ SUBDIRS =						\
 snapshot:
 	$(MAKE) dist distdir=$(PACKAGE)-$(VERSION)-`date +"%Y%m%d"`
 
-EXTRA_DIST = Readme.txt ttbd.txt log.txt legal.sh
+EXTRA_DIST = Readme.txt legal.sh
