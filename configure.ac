@@ -13,6 +13,23 @@ AC_PROG_LIBTOOL
 
 AC_PATH_XTRA
 
+
+# libtool versioning - this applies to libargyll, libargyllusb and libargyllicc
+#
+# See http://sources.redhat.com/autobook/autobook/autobook_91.html#SEC91 for details
+#
+# increment;
+# CURRENT	If the API or ABI interface has changed (reset REVISION to 0)
+# REVISION	If the API and ABI remains the same, but bugs are fixed.
+# AGE		If libzif can be linked into executables which can be
+# 		built with previous versions of this library. Don't use.
+LT_CURRENT=0
+LT_REVISION=0
+LT_AGE=0
+AC_SUBST(LT_CURRENT)
+AC_SUBST(LT_REVISION)
+AC_SUBST(LT_AGE)
+
 PKG_CHECK_MODULES(USB, [libusb-1.0 >= 1.0.0])
 AC_CHECK_LIB(m, sqrt)
 AC_CHECK_LIB(pthread, pthread_create)

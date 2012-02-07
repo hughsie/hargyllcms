@@ -9,9 +9,9 @@ EXTRA_DIST =							\
 
 AM_CFLAGS = -DOS_LINUX -DAPI_EXPORTED="/**/" -D_GNU_SOURCE -I$(top_srcdir)/libusb1/libusb
 
-noinst_LIBRARIES = libusbargyll.a
+lib_LTLIBRARIES = libargyllusb.la
 
-libusbargyll_a_SOURCES =					\
+libargyllusb_la_SOURCES =					\
 	../libusb1/libusb/core.c				\
 	../libusb1/libusb/sync.c				\
 	../libusb1/libusb/descriptor.c				\
@@ -23,3 +23,12 @@ libusbargyll_a_SOURCES =					\
 	../libusb1/libusb/os/linux_usbfs.h			\
 	../libusb1/libusb/os/poll_posix.h			\
 	$(NULL)
+
+libargyllusb_la_LIBADD =					\
+	-lrt							\
+	$(NULL)
+
+libargyllusb_la_LDFLAGS =					\
+	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)	\
+	-export-dynamic						\
+	-no-undefined

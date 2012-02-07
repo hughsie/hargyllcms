@@ -1,13 +1,13 @@
 ## Process this file with automake to produce Makefile.in
 
 SUBDIRS =						\
+	libusb						\
 	lib						\
 	cgats						\
 	doc						\
 	gamut						\
 	h						\
 	icc						\
-	libusb						\
 	link						\
 	jcnf						\
 	numlib						\

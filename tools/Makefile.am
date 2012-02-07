@@ -12,7 +12,7 @@ AM_CFLAGS = -DUNIX -I $(top_srcdir)/cgats -I$(top_srcdir)/gamut		\
 bin_PROGRAMS =
 check_PROGRAMS =
 
-GAMUT_LDADD =  ../lib/libargyll.a ../icc/libicc.a
+GAMUT_LDADD =  ../lib/libargyll.la ../icc/libargyllicc.la
 
 bin_PROGRAMS += viewgam
 viewgam_SOURCES = ../gamut/viewgam.c
@@ -39,8 +39,8 @@ fakegam_SOURCES = ../gamut/fakegam.c
 fakegam_LDADD = $(GAMUT_LDADD)
 
 PROFILE_LDADD = 					\
-	../lib/libargyll.a ../icc/libicc.a		\
-	../libusb/libusbargyll.a -lrt			\
+	../lib/libargyll.la ../icc/libargyllicc.la		\
+	../libusb/libargyllusb.la -lrt			\
 	$(TIFF_LIBS) $(X_LIBS)
 
 bin_PROGRAMS += simpprof kodak2ti3 cb2ti3 txt2ti3 splitti3	\
@@ -90,15 +90,15 @@ sepgen_SOURCES = ../profile/sepgen.c
 sepgen_LDADD = $(PROFILE_LDADD)
 
 
-RENDER_LDADD =  ../lib/libargyll.a $(TIFF_LIBS)
+RENDER_LDADD =  ../lib/libargyll.la $(TIFF_LIBS)
 
 check_PROGRAMS += timage
 
 timage_SOURCES = ../render/timage.c
 timage_LDADD = $(RENDER_LDADD)
 
-RSPL_LDADD =  ../lib/libargyll.a 	\
-	 $(X_LIBS) $(TIFF_LIBS) ../icc/libicc.a
+RSPL_LDADD =  ../lib/libargyll.la 	\
+	 $(X_LIBS) $(TIFF_LIBS) ../icc/libargyllicc.la
 
 check_PROGRAMS += revbench c1 c1df t2d t2ddf t3d t3ddf tnd trnd
 
@@ -129,7 +129,7 @@ tnd_LDADD = $(RSPL_LDADD)
 trnd_SOURCES = ../rspl/trnd.c
 trnd_LDADD = $(RSPL_LDADD)
 
-SCANIN_LDADD =  ../lib/libargyll.a ../icc/libicc.a	\
+SCANIN_LDADD =  ../lib/libargyll.la ../icc/libargyllicc.la	\
 	  $(TIFF_LIBS)
 
 bin_PROGRAMS += scanin
@@ -138,8 +138,8 @@ scanin_SOURCES = ../scanin/scanin.c
 scanin_LDADD = $(SCANIN_LDADD)
 
 SPECTRO_LDADD =    	\
-	 ../lib/libargyll.a $(X_LIBS) $(YAJL_LIBS)		\
-	 ../icc/libicc.a ../libusb/libusbargyll.a -lrt
+	 ../lib/libargyll.la $(X_LIBS) $(YAJL_LIBS)		\
+	 ../icc/libargyllicc.la ../libusb/libargyllusb.la -lrt
 
 
 bin_PROGRAMS += synthcal dispwin dispread dispcal fakeread synthread	\
@@ -183,8 +183,8 @@ ccxxmake_SOURCES = ../spectro/ccxxmake.c
 ccxxmake_LDADD = $(SPECTRO_LDADD)
 
 TARGET_LDADD =   	\
-	../icc/libicc.a  	\
-	../lib/libargyll.a $(TIFF_LIBS)
+	../icc/libargyllicc.la  	\
+	../lib/libargyll.la $(TIFF_LIBS)
 
 bin_PROGRAMS += targen printtarg
 
@@ -197,9 +197,9 @@ printtarg_SOURCES = ../target/printtarg.c
 printtarg_LDADD = $(TARGET_LDADD)
 
 XICC_LDADD =   					\
-	../lib/libargyll.a 			\
-	../icc/libicc.a				\
-	../libusb/libusbargyll.a -lrt		\
+	../lib/libargyll.la 			\
+	../icc/libargyllicc.la			\
+	../libusb/libargyllusb.la -lrt		\
 	$(TIFF_LIBS) $(X_LIBS)
 
 bin_PROGRAMS += fakeCMY iccgamut mpplu revfix tiffgamut xicclu	\
@@ -237,8 +237,8 @@ ccttest_SOURCES = ../xicc/ccttest.c
 ccttest_LDADD = $(XICC_LDADD)
 
 LINK_LDADD =  			\
-	 ../icc/libicc.a 	\
-	../lib/libargyll.a $(X_LIBS) $(TIFF_LIBS)
+	 ../icc/libargyllicc.la 	\
+	../lib/libargyll.la $(X_LIBS) $(TIFF_LIBS)
 
 bin_PROGRAMS += collink pathplot
 
@@ -249,15 +249,15 @@ pathplot_SOURCES = ../link/pathplot.c
 pathplot_LDADD = $(LINK_LDADD)
 
 TWEAK_LDADD =  			\
-	 ../icc/libicc.a 	\
-	../lib/libargyll.a $(TIFF_LIBS)
+	 ../icc/libargyllicc.la 	\
+	../lib/libargyll.la $(TIFF_LIBS)
 
 bin_PROGRAMS += refine
 
 refine_SOURCES = ../tweak/refine.c
 refine_LDADD = $(TWEAK_LDADD)
 
-NUMLIB_LDADD = ../lib/libargyll.a
+NUMLIB_LDADD = ../lib/libargyll.la
 
 check_PROGRAMS += dnsqtest tpowell tdhsx LUtest svdtest zbrenttest	\
 	soboltest
@@ -288,13 +288,13 @@ noinst_PROGRAMS = icctest
 
 iccdump_DEPENDENCIES =
 iccdump_SOURCES = ../icc/iccdump.c
-iccdump_LDADD = ../icc/libicc.a
+iccdump_LDADD = ../icc/libargyllicc.la
 
 icclu_DEPENDENCIES =
 icclu_SOURCES = ../icc/icclu.c
-icclu_LDADD = ../icc/libicc.a
+icclu_LDADD = ../icc/libargyllicc.la
 
 icctest_DEPENDENCIES =
 icctest_SOURCES = ../icc/icctest.c
-icctest_LDADD = ../icc/libicc.a
+icctest_LDADD = ../icc/libargyllicc.la
 
