@@ -1,5 +1,5 @@
 Name:    argyllcms
-Version: 1.3.5
+Version: 1.3.6
 Release: 1%{?dist}
 Summary: ICC compatible color management system
 Group:   User Interface/X
@@ -75,5 +75,5 @@ rm -rf %{buildroot}
 %doc doc/*.html doc/*.jpg doc/*.txt
 
 %changelog
-* Thu Dec 01 2011 Richard Hughes <rhughes@redhat.com> - 1.3.5-1
+* Thu Dec 01 2011 Richard Hughes <rhughes@redhat.com> - 1.3.6-1
 - Rebuild using the hargyll tarball name.

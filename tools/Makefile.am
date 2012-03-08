@@ -90,7 +90,7 @@ sepgen_SOURCES = ../profile/sepgen.c
 sepgen_LDADD = $(PROFILE_LDADD)
 
 
-RENDER_LDADD =  ../lib/libargyll.la $(TIFF_LIBS)
+RENDER_LDADD =  ../lib/libargyll.la ../icc/libargyllicc.la $(TIFF_LIBS)
 
 check_PROGRAMS += timage
 
@@ -257,7 +257,7 @@ bin_PROGRAMS += refine
 refine_SOURCES = ../tweak/refine.c
 refine_LDADD = $(TWEAK_LDADD)
 
-NUMLIB_LDADD = ../lib/libargyll.la
+NUMLIB_LDADD = ../lib/libargyll.la ../icc/libargyllicc.la
 
 check_PROGRAMS += dnsqtest tpowell tdhsx LUtest svdtest zbrenttest	\
 	soboltest

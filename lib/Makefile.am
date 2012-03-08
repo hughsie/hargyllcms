@@ -43,7 +43,8 @@ libargyll_la_SOURCES += ../spectro/inst.h ../spectro/inst.c ../spectro/dtp20.c .
 	../spectro/munki.c ../spectro/munki_imp.c ../spectro/ss.c ../spectro/ss.h ../spectro/ss_imp.c ../spectro/ss_imp.h ../spectro/hcfr.c ../spectro/hcfr.h	\
 	../spectro/spyd2.c ../spectro/spyd2.h ../spectro/spyd2setup.h ../spectro/spyd2PLD.h ../spectro/huey.c ../spectro/huey.h ../spectro/unixio.c	\
 	../spectro/usbio.c ../spectro/hidio.c ../spectro/pollem.h ../spectro/icoms.h ../spectro/conv.h ../spectro/usbio.h	\
-	../spectro/hidio.h ../spectro/munki.h ../spectro/munki_imp.h
+	../spectro/hidio.h ../spectro/munki.h ../spectro/munki_imp.h ../spectro/colorhug.c ../spectro/colorhug.h	\
+	../spectro/aglob.c ../spectro/aglob.h
 
 libargyll_la_SOURCES += ../spectro/dispsup.c ../spectro/dispwin.c ../spectro/dispwin.h ../spectro/dispsup.h
 

@@ -31,8 +31,10 @@ ref_DATA =						\
 	ECI2002R.ti2					\
 	example121.sp					\
 	example.sp					\
-	FograStrip.ti1					\
-	FograStrip.ti2					\
+	FograStrip2.ti1					\
+	FograStrip2_2.ti2				\
+	FograStrip3.ti1					\
+	FograStrip3_3.ti2				\
 	GTIPlus.sp					\
 	Hutchcolor.cht					\
 	i1_RGB_Scan_1.4.cht				\
