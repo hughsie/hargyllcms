@@ -8,6 +8,7 @@ cp Argyll_V1.3.6/* . -Ru
 patch -p1 < contrib/no-comments-in-yajl-upstream.patch
 patch -p1 < contrib/disable-ucmm-as-no-yajl.patch
 patch -p1 < contrib/enable-colorhug-by-default.patch
+patch -p1 < contrib/remove-obsolete-udev-sections.patch
 ./autogen.sh
 make
 make distcheck

@@ -1,0 +1,16 @@
+diff -urNp Argyll_V1.3.6.old/libusb1/55-Argyll.rules Argyll_V1.3.6/libusb1/55-Argyll.rules
+--- Argyll_V1.3.6.old/libusb1/55-Argyll.rules	2012-03-19 10:25:02.407814654 +0000
++++ Argyll_V1.3.6/libusb1/55-Argyll.rules	2012-03-20 18:37:56.019347179 +0000
+@@ -52,12 +52,6 @@ ATTRS{idVendor}=="0971", ATTRS{idProduct
+ # ColorHug
+ ATTRS{idVendor}=="04d8", ATTRS{idProduct}=="f8da", ENV{COLOR_MEASUREMENT_DEVICE}="1"
+ 
+-# Let udev-acl and ConsoleKit manage these devices, if applicable
+-TEST=="/lib/udev/udev-acl", TEST=="/var/run/ConsoleKit/database", ENV{COLOR_MEASUREMENT_DEVICE}=="*?", ENV{ACL_MANAGE}="1"
+-
+-# Otherwise, restrict access to members of the plugdev group
+-ENV{COLOR_MEASUREMENT_DEVICE}=="*?", ENV{ACL_MANAGE}!="*?", MODE="660", GROUP="plugdev"
+-
+ # Set ID_VENDOR and ID_MODEL acording to VID and PID
+ IMPORT{program}="usb-db %p"
+ 
