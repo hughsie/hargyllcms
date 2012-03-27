@@ -2,9 +2,9 @@ See Readme.txt for the ArgyllCMS upstream file.
 
 To build this, do the following:
 
-wget http://www.argyllcms.com/Argyll_V1.3.6_src.zip
-unzip Argyll_V1.3.6_src.zip
-cp Argyll_V1.3.6/* . -Ru
+wget http://www.argyllcms.com/Argyll_V1.3.7_src.zip
+unzip Argyll_V1.3.7_src.zip
+cp Argyll_V1.3.7/* . -Ru
 patch -p1 < contrib/no-comments-in-yajl-upstream.patch
 patch -p1 < contrib/disable-ucmm-as-no-yajl.patch
 patch -p1 < contrib/enable-colorhug-by-default.patch
