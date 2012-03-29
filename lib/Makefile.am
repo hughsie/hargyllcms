@@ -67,6 +67,7 @@ libargyll_la_SOURCES += ../numlib/numlib.h ../numlib/numsup.c ../numlib/numsup.h
 
 libargyll_la_LIBADD =						\
 	../libusb/libargyllusb.la				\
+	../icc/libargyllicc.la					\
 	$(TIFF_LIBS)						\
 	$(X_LIBS)						\
 	$(NULL)
