@@ -2,12 +2,12 @@
 
 SUBDIRS =						\
 	libusb						\
-	lib						\
 	cgats						\
 	doc						\
 	gamut						\
 	h						\
 	icc						\
+	lib						\
 	link						\
 	jcnf						\
 	numlib						\
