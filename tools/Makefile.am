@@ -200,7 +200,7 @@ XICC_LDADD =   					\
 	../lib/libargyll.la 			\
 	../icc/libargyllicc.la			\
 	../libusb/libargyllusb.la -lrt		\
-	$(TIFF_LIBS) $(X_LIBS)
+	$(TIFF_LIBS) $(JPEG_LIBS) $(X_LIBS)
 
 bin_PROGRAMS += fakeCMY iccgamut mpplu revfix tiffgamut xicclu	\
 	extracticc extractttag specplot ccttest

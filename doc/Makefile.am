@@ -11,6 +11,7 @@ doc_DATA =						\
 	cal_format.html					\
 	calvschar.html					\
 	cb2ti3.html					\
+	ccmxs.html					\
 	cctiff.html					\
 	ccxxmake.html					\
 	ChangesSummary.html				\
@@ -134,6 +135,9 @@ doc_DATA =						\
 	Spyd2.jpg					\
 	Spyd3.jpg					\
 	Spyd3x.jpg					\
+	spyd4en.html					\
+	Spyd4.jpg					\
+	SpyderChecker.jpg				\
 	srgbplot.gif					\
 	ss.jpg						\
 	surface.jpg					\

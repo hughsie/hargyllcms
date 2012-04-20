@@ -1,4 +1,4 @@
-AC_INIT([hargyllcms], [1.3.7])
+AC_INIT([hargyllcms], [1.4.0])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
@@ -36,6 +36,9 @@ AC_CHECK_LIB(pthread, pthread_create)
 
 AC_CHECK_LIB(tiff, TIFFOpen, TIFF_LIBS="-ltiff", , -lm)
 AC_SUBST([TIFF_LIBS])
+
+AC_CHECK_LIB(jpeg, jpeg_finish_decompress, JPEG_LIBS="-ljpeg", , -lm)
+AC_SUBST([JPEG_LIBS])
 
 AC_CHECK_LIB(X11, XOpenDisplay, X_LIBS="$X_LIBS -lX11")
 AC_CHECK_LIB(Xext, XextFindDisplay, X_LIBS="$X_LIBS -lXext",,-lX11)

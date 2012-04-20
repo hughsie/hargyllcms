@@ -4,20 +4,21 @@ refdir = $(datadir)/color/argyll/ref
 
 ref_DATA =						\
 	3dap5k.sp					\
+	ccxx.ti1					\
 	CIE_C.sp					\
 	ClayRGB1998.icm					\
+	CMP_Digital_Target-3.cht			\
+	CMP_Digital_Target-3.cie			\
+	CMP_Digital_Target-3.ti2			\
 	CMP_DT_003.cht					\
 	ColorChecker.cht				\
+	ColorChecker.cie				\
 	ColorCheckerDC.cht				\
 	ColorCheckerSG.cht				\
 	ColorChecker.ti2				\
-	CMP_Digital_Target-3.ti2			\
-	ColorChecker.cie				\
-	CMP_Digital_Target-3.cht			\
-	D50_0.1.sp					\
-	LaserSoftDCPro.cht				\
-	QPcard_201.cie					\
+	CRT.ccss					\
 	D50_0.0.sp					\
+	D50_0.1.sp					\
 	D50_0.3.sp					\
 	D50_0.5.sp					\
 	D50_0.7.sp					\
@@ -29,6 +30,7 @@ ref_DATA =						\
 	D50_2.5.sp					\
 	D50_3.0.sp					\
 	ECI2002R.ti2					\
+	ECI2002.ti2					\
 	example121.sp					\
 	example.sp					\
 	FograStrip2.ti1					\
@@ -41,11 +43,17 @@ ref_DATA =						\
 	i1_RGB_Scan_1.4.ti2				\
 	it8.cht						\
 	lab2lab.icm					\
+	LaserSoftDCPro.cht				\
+	linear.cal					\
 	Makefile.am					\
 	Office.sp					\
 	QPcard_201.cht					\
+	QPcard_201.cie					\
 	SOtele.sp					\
+	SpyderChecker.cht				\
+	SpyderChecker.cie				\
 	sRGB.icm					\
+	strange.cal					\
 	TruluxPlus.sp					\
 	Trulux.sp
 

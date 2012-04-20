@@ -27,6 +27,7 @@ libargyll_la_SOURCES += ../plot/vrml.h ../plot/vrml.c
 libargyll_la_SOURCES += ../profile/prof.h ../profile/profin.c ../profile/profout.c
 
 libargyll_la_SOURCES += ../render/render.h ../render/render.c
+libargyll_la_SOURCES += ../render/thscreen.h ../render/thscreen.c ../render/screens.h
 
 libargyll_la_SOURCES += ../rspl/rspl.h ../rspl/rspl_imp.h ../rspl/mlbs.h ../rspl/rspl.c ../rspl/scat.c ../rspl/rev.c	\
 	../rspl/rev.h ../rspl/gam.c ../rspl/gam.h ../rspl/spline.c ../rspl/opt.c
@@ -46,6 +47,9 @@ libargyll_la_SOURCES += ../spectro/inst.h ../spectro/inst.c ../spectro/dtp20.c .
 	../spectro/hidio.h ../spectro/munki.h ../spectro/munki_imp.h ../spectro/colorhug.c ../spectro/colorhug.h	\
 	../spectro/aglob.c ../spectro/aglob.h
 
+libargyll_la_SOURCES += ../spectro/webwin.h ../spectro/webwin.c
+libargyll_la_SOURCES += ../spectro/mongoose.h ../spectro/mongoose.c
+
 libargyll_la_SOURCES += ../spectro/dispsup.c ../spectro/dispwin.c ../spectro/dispwin.h ../spectro/dispsup.h
 
 libargyll_la_SOURCES += ../spectro/conv.c ../spectro/pollem.c
@@ -60,6 +64,7 @@ libargyll_la_SOURCES += ../xicc/xicc.h ../xicc/xicc.c ../xicc/xlutfix.c ../xicc/
 	../xicc/ccmx.c ../xicc/ccmx.h ../xicc/ccss.c ../xicc/ccss.h
 
 libargyll_la_SOURCES += ../xicc/xutils.h ../xicc/xutils.c
+libargyll_la_SOURCES += ../xicc/iccjpeg.h ../xicc/iccjpeg.c
 
 libargyll_la_SOURCES += ../numlib/numlib.h ../numlib/numsup.c ../numlib/numsup.h ../numlib/dnsq.c ../numlib/dnsq.h	\
 	../numlib/powell.c ../numlib/powell.h ../numlib/dhsx.c ../numlib/dhsx.h ../numlib/ludecomp.c ../numlib/ludecomp.h ../numlib/svd.c	\
