@@ -74,6 +74,8 @@ libargyll_la_LIBADD =						\
 	../libusb/libargyllusb.la				\
 	../icc/libargyllicc.la					\
 	$(TIFF_LIBS)						\
+	$(JPEG_LIBS)						\
+	$(DLOPEN_LIBS)						\
 	$(X_LIBS)						\
 	$(NULL)
 
