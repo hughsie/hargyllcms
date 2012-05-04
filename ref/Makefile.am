@@ -1,20 +1,33 @@
 ## Process this file with automake to produce Makefile.in
 
-refdir = $(datadir)/color/argyll/ref
+chtdir = $(datadir)/color/argyll/ref
+cht_DATA =						\
+	CMP_Digital_Target-3.cht			\
+	CMP_DT_003.cht					\
+	ColorChecker.cht				\
+	ColorCheckerDC.cht				\
+	ColorCheckerSG.cht				\
+	Hutchcolor.cht					\
+	i1_RGB_Scan_1.4.cht				\
+	it8.cht						\
+	LaserSoftDCPro.cht				\
+	QPcard_201.cht					\
+	SpyderChecker.cht
 
+ciedir = $(datadir)/color/argyll/ref
+cie_DATA =						\
+	CMP_Digital_Target-3.cie			\
+	ColorChecker.cie				\
+	QPcard_201.cie					\
+	SpyderChecker.cie
+
+refdir = $(datadir)/color/argyll/ref
 ref_DATA =						\
 	3dap5k.sp					\
 	ccxx.ti1					\
 	CIE_C.sp					\
 	ClayRGB1998.icm					\
-	CMP_Digital_Target-3.cht			\
-	CMP_Digital_Target-3.cie			\
 	CMP_Digital_Target-3.ti2			\
-	CMP_DT_003.cht					\
-	ColorChecker.cht				\
-	ColorChecker.cie				\
-	ColorCheckerDC.cht				\
-	ColorCheckerSG.cht				\
 	ColorChecker.ti2				\
 	CRT.ccss					\
 	D50_0.0.sp					\
@@ -38,20 +51,12 @@ ref_DATA =						\
 	FograStrip3.ti1					\
 	FograStrip3_3.ti2				\
 	GTIPlus.sp					\
-	Hutchcolor.cht					\
-	i1_RGB_Scan_1.4.cht				\
 	i1_RGB_Scan_1.4.ti2				\
-	it8.cht						\
 	lab2lab.icm					\
-	LaserSoftDCPro.cht				\
 	linear.cal					\
 	Makefile.am					\
 	Office.sp					\
-	QPcard_201.cht					\
-	QPcard_201.cie					\
 	SOtele.sp					\
-	SpyderChecker.cht				\
-	SpyderChecker.cie				\
 	sRGB.icm					\
 	strange.cal					\
 	TruluxPlus.sp					\
