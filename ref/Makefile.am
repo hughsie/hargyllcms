@@ -63,5 +63,7 @@ ref_DATA =						\
 	Trulux.sp
 
 EXTRA_DIST =						\
+	$(cht_DATA)					\
+	$(cie_DATA)					\
 	$(ref_DATA)
 
