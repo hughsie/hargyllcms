@@ -21,17 +21,17 @@ diff -urNp Argyll_V1.3.6.old/spectro/inst.c Argyll_V1.3.6/spectro/inst.c
 diff -urNp Argyll_V1.3.6.old/spectro/insttypes.c Argyll_V1.3.6/spectro/insttypes.c
 --- Argyll_V1.3.6.old/spectro/insttypes.c	2012-03-19 10:25:02.397814652 +0000
 +++ Argyll_V1.3.6/spectro/insttypes.c	2012-03-19 10:26:08.310817128 +0000
-@@ -200,12 +200,7 @@ unsigned short idProduct) {
+@@ -212,12 +212,7 @@ unsigned short idProduct) {
  
- 	if (idVendor == 0x04d8) {		/* Microchip */
- 		if (idProduct == 0xf8da) {	/* Hughski ColorHug */
+ 	if ((idVendor == 0x04d8 && idProduct == 0xf8da)			/* Microchip & Hughski ColorHug (old) */
+ 	 || (idVendor == 0x273f && idProduct == 0x1001)) {		/* Hughski & ColorHug Fmw. >= 0.1.20 */
 -#ifndef ENABLE_COLORHUG
--			if (getenv("ENABLE_COLORHUG") == NULL)
--				return instUnknown;
--			else
+-		if (getenv("ENABLE_COLORHUG") == NULL)
+-			return instUnknown;
+-		else
 -#endif
--				return instColorHug;
-+			return instColorHug;
- 		}
+-			return instColorHug;
++		return instColorHug;
  	}
  	/* Add other instruments here */
+ 
