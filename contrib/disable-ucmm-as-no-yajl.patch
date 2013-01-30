@@ -1,15 +1,11 @@
-diff --git a/h/aconfig.h b/h/aconfig.h
-index 51adf4f..6cab261 100644
---- a/h/aconfig.h
-+++ b/h/aconfig.h
-@@ -16,10 +16,6 @@
- /* Maximum file path length */
- #define MAXNAMEL 1024
+--- h/aconfig.h.new	2013-01-30 12:08:59.746642963 +0000
++++ h/aconfig.h	2013-01-30 12:09:10.476627117 +0000
+@@ -22,8 +22,4 @@
+ # undef UNIX_X11
+ #endif
  
 -#if defined(UNIX) && !defined(__APPLE__)
 -#define USE_UCMM		/* Enable the Unix micro CMM */
 -#endif
 -
- #ifndef SALONEINSTLIB
- #define ENABLE_SERIAL	/* Enable access to serial instruments */
- #define ENABLE_USB		/* Enable access to USB instruments using libusb */
+ #endif /* __CONFIG_H__ */
