@@ -6,7 +6,9 @@ AM_CFLAGS = -DUNIX -I $(top_srcdir)/cgats -I$(top_srcdir)/gamut		\
     -I$(top_srcdir)/numlib -I$(top_srcdir)/plot -I$(top_srcdir)/profile	\
     -I$(top_srcdir)/render -I$(top_srcdir)/rspl -I$(top_srcdir)/spectro	\
     -I$(top_srcdir)/target -I$(top_srcdir)/xicc -I$(top_srcdir)/ucmm	\
-    -DUSE_LIBUSB1							\
+    -DNATIVE_USB							\
+    -DENABLE_SERIAL							\
+    -DENABLE_SERIAL							\
     $(USB_CFLAGS) $(TIFF_CFLAGS)
 
 lib_LTLIBRARIES = libargyll.la
@@ -42,7 +44,7 @@ libargyll_la_SOURCES += ../spectro/inst.h ../spectro/inst.c ../spectro/dtp20.c .
 	../spectro/dtp22.h ../spectro/dtp41.c ../spectro/dtp41.h ../spectro/dtp51.c ../spectro/dtp51.h ../spectro/dtp92.c ../spectro/dtp92.h		\
 	../spectro/i1disp.c ../spectro/i1disp.h ../spectro/i1pro.c ../spectro/i1pro.h ../spectro/i1pro_imp.c ../spectro/i1pro_imp.h	\
 	../spectro/munki.c ../spectro/munki_imp.c ../spectro/ss.c ../spectro/ss.h ../spectro/ss_imp.c ../spectro/ss_imp.h ../spectro/hcfr.c ../spectro/hcfr.h	\
-	../spectro/spyd2.c ../spectro/spyd2.h ../spectro/spyd2setup.h ../spectro/spyd2PLD.h ../spectro/huey.c ../spectro/huey.h ../spectro/unixio.c	\
+	../spectro/spyd2.c ../spectro/spyd2.h ../spectro/spyd2setup.h ../spectro/spyd2PLD.h ../spectro/huey.c ../spectro/huey.h	\
 	../spectro/usbio.c ../spectro/hidio.c ../spectro/pollem.h ../spectro/icoms.h ../spectro/conv.h ../spectro/usbio.h	\
 	../spectro/hidio.h ../spectro/munki.h ../spectro/munki_imp.h ../spectro/colorhug.c ../spectro/colorhug.h	\
 	../spectro/aglob.c ../spectro/aglob.h

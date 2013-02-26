@@ -63,7 +63,6 @@ doc_DATA =						\
 	Huey.jpg					\
 	i1d3_1.jpg					\
 	i1d3_2.jpg					\
-	i1d3ccss.html					\
 	i1d.jpg						\
 	i1m.jpg						\
 	i1p.jpg						\
@@ -131,11 +130,9 @@ doc_DATA =						\
 	specplot.html					\
 	splitti3.html					\
 	spotread.html					\
-	spyd2en.html					\
 	Spyd2.jpg					\
 	Spyd3.jpg					\
 	Spyd3x.jpg					\
-	spyd4en.html					\
 	Spyd4.jpg					\
 	SpyderChecker.jpg				\
 	srgbplot.gif					\

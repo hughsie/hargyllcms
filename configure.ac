@@ -67,7 +67,7 @@ AC_CONFIG_FILES([Makefile
                  gamut/Makefile
                  h/Makefile
                  icc/Makefile
-                 libusb/Makefile
+                 usb/Makefile
                  link/Makefile
                  numlib/Makefile
                  plot/Makefile
