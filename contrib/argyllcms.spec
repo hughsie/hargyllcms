@@ -12,7 +12,6 @@ BuildRequires: libX11-devel
 BuildRequires: libXext-devel
 BuildRequires: libXxf86vm-devel
 BuildRequires: libXinerama-devel
-BuildRequires: libXScrnSaver-devel
 BuildRequires: libXrandr-devel
 Requires: udev
 

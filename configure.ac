@@ -45,7 +45,6 @@ AC_CHECK_FUNC([dlopen], [],
 
 AC_CHECK_LIB(X11, XOpenDisplay, X_LIBS="$X_LIBS -lX11")
 AC_CHECK_LIB(Xext, XextFindDisplay, X_LIBS="$X_LIBS -lXext",,-lX11)
-AC_CHECK_LIB(Xss, XScreenSaverSuspend, X_LIBS="$X_LIBS -lXss",,-lXext -lX11)
 AC_CHECK_LIB(Xrandr, XRRRootToScreen, X_LIBS="$X_LIBS -lXrandr",,-LXext -lX11)
 AC_CHECK_LIB(Xinerama, XineramaQueryScreens, X_LIBS="$X_LIBS -lXinerama",,-LXext -lX11)
 AC_CHECK_LIB(Xxf86vm, XF86VidModeGetGamma, X_LIBS="$X_LIBS -lXxf86vm",,-lXext -lX11)

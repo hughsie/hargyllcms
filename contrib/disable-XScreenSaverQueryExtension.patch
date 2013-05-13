@@ -1,0 +1,20 @@
+--- spectro/dispwin.c	2013-05-13 13:23:42.958053366 +0100
++++ spectro/dispwin.c.new	2013-05-13 13:23:40.288057024 +0100
+@@ -3160,7 +3160,7 @@ static void restore_display(dispwin *p)
+ 
+ #if defined(UNIX_X11)
+ 
+-#if ScreenSaverMajorVersion >= 1 && ScreenSaverMinorVersion >= 1	/* X11R7.1 */
++#if NEVER
+ 	if (p->xsssuspend) {
+ 		XScreenSaverSuspend(p->mydisplay, False);
+ 		p->xsssuspend = 0;
+@@ -4522,7 +4522,7 @@ int ddebug						/* >0 to print debug sta
+ 			/* Install the signal handler to ensure cleanup */
+ 			dispwin_install_signal_handlers(p);
+ 
+-#if ScreenSaverMajorVersion >= 1 && ScreenSaverMinorVersion >= 1	/* X11R7.1 ??? */
++#if NEVER
+ 
+ 			/* Disable any screensavers that work properly with XScreenSaverSuspend() */
+ 			if (XScreenSaverQueryExtension (p->mydisplay, &evb, &erb) != 0) {
