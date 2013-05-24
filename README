@@ -2,10 +2,10 @@ See Readme.txt for the ArgyllCMS upstream file.
 
 To build this, do the following:
 
-#zipfile="Argyll_V1.4.0_src.zip"
-zipfile="Argyll_dev_src.zip"
-#version="Argyll_V1.4.0"
-version="Argyll_V1.5.0_beta"
+zipfile="Argyll_V1.5.1_src.zip"
+#zipfile="Argyll_dev_src.zip"
+version="Argyll_V1.5.1"
+#version="Argyll_V1.5.0_beta"
 wget http://www.argyllcms.com/${zipfile}
 unzip ${zipfile}
 cp ${version}/* . -Ru
