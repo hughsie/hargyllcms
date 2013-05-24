@@ -1,4 +1,4 @@
-AC_INIT([hargyllcms], [1.4.0])
+AC_INIT([hargyllcms], [1.5.1])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
@@ -32,6 +32,7 @@ AC_SUBST(LT_AGE)
 
 PKG_CHECK_MODULES(USB, [libusb-1.0 >= 1.0.0])
 AC_CHECK_LIB(m, sqrt)
+AC_CHECK_LIB(z, inflate)
 AC_CHECK_LIB(pthread, pthread_create)
 
 AC_CHECK_LIB(tiff, TIFFOpen, TIFF_LIBS="-ltiff", , -lm)
@@ -66,7 +67,6 @@ AC_CONFIG_FILES([Makefile
                  gamut/Makefile
                  h/Makefile
                  icc/Makefile
-                 usb/Makefile
                  link/Makefile
                  numlib/Makefile
                  plot/Makefile

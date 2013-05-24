@@ -6,12 +6,13 @@ zipfile="Argyll_V1.5.1_src.zip"
 #zipfile="Argyll_dev_src.zip"
 version="Argyll_V1.5.1"
 #version="Argyll_V1.5.0_beta"
-wget http://www.argyllcms.com/${zipfile}
+#wget http://www.argyllcms.com/${zipfile}
 unzip ${zipfile}
 cp ${version}/* . -Ru
+rm -rf Argyll_V1.5.1
 patch -p1 < contrib/no-comments-in-yajl-upstream.patch
-patch -p1 < contrib/disable-ucmm-as-no-yajl.patch
-patch -p1 < contrib/disable-XScreenSaverQueryExtension.patch
+patch -p0 < contrib/disable-ucmm-as-no-yajl.patch
+patch -p0 < contrib/disable-XScreenSaverQueryExtension.patch
 ./autogen.sh
 make
 make distcheck

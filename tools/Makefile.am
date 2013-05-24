@@ -5,8 +5,9 @@ AM_CFLAGS = -DUNIX -I $(top_srcdir)/cgats -I$(top_srcdir)/gamut		\
     -I$(top_srcdir)/numlib -I$(top_srcdir)/plot -I$(top_srcdir)/profile	\
     -I$(top_srcdir)/render -I$(top_srcdir)/rspl -I$(top_srcdir)/spectro	\
     -I$(top_srcdir)/target -I$(top_srcdir)/xicc	-I$(top_srcdir)/ucmm	\
-    -I$(top_srcdir)/libusb1/libusb					\
-    -DUSE_LIBUSB1							\
+    -DNATIVE_USB							\
+    -DENABLE_USB							\
+    -DENABLE_SERIAL							\
     $(TIFF_CFLAGS)
 
 bin_PROGRAMS =
@@ -40,12 +41,13 @@ fakegam_LDADD = $(GAMUT_LDADD)
 
 PROFILE_LDADD = 					\
 	../lib/libargyll.la ../icc/libargyllicc.la		\
-	../libusb/libargyllusb.la -lrt			\
+	-lrt			\
 	$(TIFF_LIBS) $(X_LIBS)
 
 bin_PROGRAMS += simpprof kodak2ti3 cb2ti3 txt2ti3 splitti3	\
 	profcheck invprofcheck mppprof mppcheck verify colprof printcal	\
-	applycal sepgen
+	applycal
+#sepgen
 
 simpprof_SOURCES = ../profile/simpprof.c
 simpprof_LDADD = $(PROFILE_LDADD)
@@ -86,8 +88,8 @@ printcal_LDADD = $(PROFILE_LDADD)
 applycal_SOURCES = ../profile/applycal.c
 applycal_LDADD = $(PROFILE_LDADD)
 
-sepgen_SOURCES = ../profile/sepgen.c
-sepgen_LDADD = $(PROFILE_LDADD)
+#sepgen_SOURCES = ../profile/sepgen.c
+#sepgen_LDADD = $(PROFILE_LDADD)
 
 
 RENDER_LDADD =  ../lib/libargyll.la ../icc/libargyllicc.la $(TIFF_LIBS)
@@ -139,11 +141,11 @@ scanin_LDADD = $(SCANIN_LDADD)
 
 SPECTRO_LDADD =    	\
 	 ../lib/libargyll.la $(X_LIBS) $(YAJL_LIBS)		\
-	 ../icc/libargyllicc.la ../libusb/libargyllusb.la -lrt
+	 ../icc/libargyllicc.la -lrt
 
 
 bin_PROGRAMS += synthcal dispwin dispread dispcal fakeread synthread	\
-	chartread spotread spec2cie average spyd2en ccxxmake
+	chartread spotread spec2cie average oeminst ccxxmake
 
 synthcal_SOURCES = ../spectro/synthcal.c
 synthcal_LDADD = $(SPECTRO_LDADD)
@@ -176,8 +178,15 @@ spec2cie_LDADD = $(SPECTRO_LDADD)
 average_SOURCES = ../spectro/average.c
 average_LDADD = $(SPECTRO_LDADD)
 
-spyd2en_SOURCES = ../spectro/spyd2en.c ../spectro/vinflate.c
-spyd2en_LDADD = $(SPECTRO_LDADD)
+oeminst_SOURCES =			\
+	../spectro/LzmaDec.h		\
+	../spectro/LzmaTypes.h		\
+	../spectro/oemarch.c		\
+	../spectro/oemarch.h		\
+	../spectro/oeminst.c		\
+	../spectro/spyd2.c		\
+	../spectro/vinflate.c
+oeminst_LDADD = $(SPECTRO_LDADD)
 
 ccxxmake_SOURCES = ../spectro/ccxxmake.c
 ccxxmake_LDADD = $(SPECTRO_LDADD)
@@ -199,7 +208,8 @@ printtarg_LDADD = $(TARGET_LDADD)
 XICC_LDADD =   					\
 	../lib/libargyll.la 			\
 	../icc/libargyllicc.la			\
-	../libusb/libargyllusb.la -lrt		\
+	-lrt		\
+	-lz		\
 	$(TIFF_LIBS) $(JPEG_LIBS) $(X_LIBS)
 
 bin_PROGRAMS += fakeCMY iccgamut mpplu revfix tiffgamut xicclu	\

@@ -120,7 +120,6 @@ doc_DATA =						\
 	revfix.html					\
 	scanin.html					\
 	Scenarios.html					\
-	sepgen.html					\
 	SG_footer.txt					\
 	SG_header.txt					\
 	SG.jpg						\

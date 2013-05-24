@@ -7,7 +7,7 @@ AM_CFLAGS = -DUNIX -I $(top_srcdir)/cgats -I$(top_srcdir)/gamut		\
     -I$(top_srcdir)/render -I$(top_srcdir)/rspl -I$(top_srcdir)/spectro	\
     -I$(top_srcdir)/target -I$(top_srcdir)/xicc -I$(top_srcdir)/ucmm	\
     -DNATIVE_USB							\
-    -DENABLE_SERIAL							\
+    -DENABLE_USB							\
     -DENABLE_SERIAL							\
     $(USB_CFLAGS) $(TIFF_CFLAGS)
 
@@ -38,6 +38,7 @@ libargyll_la_SOURCES += ../scanin/scanrd.h ../scanin/scanrd_.h ../scanin/scanrd.
 
 libargyll_la_SOURCES += ../spectro/insttypes.h ../spectro/insttypes.c	\
 	../spectro/insttypeinst.h ../spectro/xdg_bds.h			\
+	../spectro/instappsup.h ../spectro/instappsup.c			\
 	../spectro/xdg_bds.c ../spectro/i1d3.c ../spectro/i1d3.h
 
 libargyll_la_SOURCES += ../spectro/inst.h ../spectro/inst.c ../spectro/dtp20.c ../spectro/dtp20.h ../spectro/dtp22.c	\
@@ -45,9 +46,12 @@ libargyll_la_SOURCES += ../spectro/inst.h ../spectro/inst.c ../spectro/dtp20.c .
 	../spectro/i1disp.c ../spectro/i1disp.h ../spectro/i1pro.c ../spectro/i1pro.h ../spectro/i1pro_imp.c ../spectro/i1pro_imp.h	\
 	../spectro/munki.c ../spectro/munki_imp.c ../spectro/ss.c ../spectro/ss.h ../spectro/ss_imp.c ../spectro/ss_imp.h ../spectro/hcfr.c ../spectro/hcfr.h	\
 	../spectro/spyd2.c ../spectro/spyd2.h ../spectro/spyd2setup.h ../spectro/spyd2PLD.h ../spectro/huey.c ../spectro/huey.h	\
-	../spectro/usbio.c ../spectro/hidio.c ../spectro/pollem.h ../spectro/icoms.h ../spectro/conv.h ../spectro/usbio.h	\
+	../spectro/usbio.c ../spectro/iusb.h ../spectro/hidio.c ../spectro/pollem.h ../spectro/icoms.h ../spectro/icoms.c ../spectro/conv.h ../spectro/usbio.h	\
 	../spectro/hidio.h ../spectro/munki.h ../spectro/munki_imp.h ../spectro/colorhug.c ../spectro/colorhug.h	\
 	../spectro/aglob.c ../spectro/aglob.h
+
+# include'd into .c files, urgh
+EXTRA_DIST = ../spectro/usbio_lx.c ../spectro/icoms_ux.c
 
 libargyll_la_SOURCES += ../spectro/webwin.h ../spectro/webwin.c
 libargyll_la_SOURCES += ../spectro/mongoose.h ../spectro/mongoose.c
@@ -59,8 +63,8 @@ libargyll_la_SOURCES += ../spectro/conv.c ../spectro/pollem.c
 libargyll_la_SOURCES += ../target/alphix.c ../target/alphix.h ../target/randix.c ../target/randix.h
 
 
-libargyll_la_SOURCES += ../xicc/xicc.h ../xicc/xicc.c ../xicc/xlutfix.c ../xicc/xspect.c ../xicc/xspect.h ../xicc/xsep.c	\
-	../xicc/xsep.h ../xicc/xdevlin.c ../xicc/xdevlin.h ../xicc/xcam.c ../xicc/xcam.h ../xicc/cam97s3.c ../xicc/cam97s3.h	\
+libargyll_la_SOURCES += ../xicc/xicc.h ../xicc/xicc.c ../xicc/xlutfix.c ../xicc/xspect.c ../xicc/xspect.h	\
+	../xicc/xdevlin.c ../xicc/xdevlin.h ../xicc/xcam.c ../xicc/xcam.h ../xicc/cam97s3.c ../xicc/cam97s3.h	\
 	../xicc/cam02.c ../xicc/cam02.h ../xicc/mpp.c ../xicc/xfit.c ../xicc/xfit.h ../xicc/moncurve.c ../xicc/moncurve.h	\
 	../xicc/mpp.h ../xicc/xdgb.c ../xicc/xdgb.h ../xicc/xcal.c ../xicc/xcal.h ../xicc/xcolorants.c ../xicc/xcolorants.h	\
 	../xicc/ccmx.c ../xicc/ccmx.h ../xicc/ccss.c ../xicc/ccss.h
@@ -73,7 +77,6 @@ libargyll_la_SOURCES += ../numlib/numlib.h ../numlib/numsup.c ../numlib/numsup.h
 	../numlib/svd.h ../numlib/zbrent.c ../numlib/zbrent.h ../numlib/rand.c ../numlib/rand.h ../numlib/sobol.c ../numlib/sobol.h ../numlib/aatree.c ../numlib/aatree.h
 
 libargyll_la_LIBADD =						\
-	../libusb/libargyllusb.la				\
 	../icc/libargyllicc.la					\
 	$(TIFF_LIBS)						\
 	$(JPEG_LIBS)						\
