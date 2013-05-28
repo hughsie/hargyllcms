@@ -186,7 +186,7 @@ oeminst_SOURCES =			\
 	../spectro/oeminst.c		\
 	../spectro/spyd2.c		\
 	../spectro/vinflate.c
-oeminst_LDADD = $(SPECTRO_LDADD)
+oeminst_LDADD = $(SPECTRO_LDADD) -lz
 
 ccxxmake_SOURCES = ../spectro/ccxxmake.c
 ccxxmake_LDADD = $(SPECTRO_LDADD)

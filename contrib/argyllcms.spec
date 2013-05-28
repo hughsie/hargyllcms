@@ -13,6 +13,9 @@ BuildRequires: libXext-devel
 BuildRequires: libXxf86vm-devel
 BuildRequires: libXinerama-devel
 BuildRequires: libXrandr-devel
+BuildRequires: automake
+BuildRequires: zlib-devel
+
 Requires: udev
 
 %description
