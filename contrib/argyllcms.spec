@@ -1,12 +1,17 @@
 Name:    argyllcms
-Version: 1.3.6
+Version: 1.5.1
 Release: 1%{?dist}
 Summary: ICC compatible color management system
 Group:   User Interface/X
 License: GPLv3 and MIT
 URL:     http://gitorious.org/hargyllcms
 Source0: http://people.freedesktop.org/~hughsient/releases/hargyllcms-%{version}.tar.xz
+
+BuildRequires: autoconf
+BuildRequires: automake
+BuildRequires: libtool
 BuildRequires: libtiff-devel
+BuildRequires: libjpeg-turbo-devel
 BuildRequires: libusb1-devel
 BuildRequires: libX11-devel
 BuildRequires: libXext-devel
@@ -15,8 +20,6 @@ BuildRequires: libXinerama-devel
 BuildRequires: libXrandr-devel
 BuildRequires: automake
 BuildRequires: zlib-devel
-
-Requires: udev
 
 %description
 The Argyll color management system supports accurate ICC profile creation for
@@ -52,15 +55,18 @@ This package contains the Argyll color management system documentation.
 ./legal.sh
 
 %build
-%configure
+%configure --disable-static
 make
 
 %install
-rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
 
-%clean
-rm -rf %{buildroot}
+# We don't want other programs to use these
+rm -f $RPM_BUILD_ROOT%{_libdir}/libargyll*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/libargyll*.so
+
+# rely on colord  to provide ENV{COLOR_MEASUREMENT_DEVICE}="1"
+rm -f $RPM_BUILD_ROOT/lib/udev/rules.d/55-Argyll.rules
 
 %files
 %defattr(0644,root,root,0755)
@@ -68,9 +74,14 @@ rm -rf %{buildroot}
 
 %attr(0755,root,root) %{_bindir}/*
 %{_datadir}/color/argyll
-/lib/udev/rules.d/55-Argyll.rules
+%{_datadir}/color/argyll/ref
+%{_libdir}/libargyll*.so.*
 
 %exclude %{_datadir}/doc
+
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
 
 %files doc
 %defattr(0644,root,root,0755)
