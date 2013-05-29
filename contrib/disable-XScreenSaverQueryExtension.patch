@@ -18,3 +18,13 @@
  
  			/* Disable any screensavers that work properly with XScreenSaverSuspend() */
  			if (XScreenSaverQueryExtension (p->mydisplay, &evb, &erb) != 0) {
+--- spectro/dispwin.h.old	2013-05-29 20:32:51.259576957 +0100
++++ spectro/dispwin.h	2013-05-29 20:33:35.596510938 +0100
+@@ -78,7 +78,6 @@ WINSHLWAPI LPWSTR WINAPI PathFindFileNam
+ #include <X11/extensions/dpms.h>
+ #include <X11/extensions/Xinerama.h>
+ #include <X11/extensions/Xrandr.h>
+-#include <X11/extensions/scrnsaver.h>
+ #include <X11/extensions/dpms.h>
+ #endif /* UNIX_X11 */
+ 
