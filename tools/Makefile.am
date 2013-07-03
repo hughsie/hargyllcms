@@ -141,7 +141,7 @@ scanin_LDADD = $(SCANIN_LDADD)
 
 SPECTRO_LDADD =    	\
 	 ../lib/libargyll.la $(X_LIBS) $(YAJL_LIBS)		\
-	 ../icc/libargyllicc.la -lrt
+	 ../icc/libargyllicc.la -lrt -ldl
 
 
 bin_PROGRAMS += synthcal dispwin dispread dispcal fakeread synthread	\

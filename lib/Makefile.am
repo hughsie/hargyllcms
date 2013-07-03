@@ -8,6 +8,7 @@ AM_CFLAGS = -DUNIX -I $(top_srcdir)/cgats -I$(top_srcdir)/gamut		\
     -I$(top_srcdir)/target -I$(top_srcdir)/xicc -I$(top_srcdir)/ucmm	\
     -DNATIVE_USB							\
     -DENABLE_USB							\
+    -DENABLE_FAST_SERIAL						\
     -DENABLE_SERIAL							\
     $(USB_CFLAGS) $(TIFF_CFLAGS)
 
@@ -39,6 +40,7 @@ libargyll_la_SOURCES += ../scanin/scanrd.h ../scanin/scanrd_.h ../scanin/scanrd.
 libargyll_la_SOURCES += ../spectro/insttypes.h ../spectro/insttypes.c	\
 	../spectro/insttypeinst.h ../spectro/xdg_bds.h			\
 	../spectro/instappsup.h ../spectro/instappsup.c			\
+	../spectro/specbos.h ../spectro/specbos.c			\
 	../spectro/xdg_bds.c ../spectro/i1d3.c ../spectro/i1d3.h
 
 libargyll_la_SOURCES += ../spectro/inst.h ../spectro/inst.c ../spectro/dtp20.c ../spectro/dtp20.h ../spectro/dtp22.c	\
