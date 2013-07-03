@@ -9,7 +9,7 @@ version="Argyll_V1.6.0_beta"
 #wget http://www.argyllcms.com/${zipfile}
 unzip ${zipfile}
 cp ${version}/* . -Ru
-rm -rf Argyll_V1.5.1
+rm -rf ${version}
 patch -p1 < contrib/no-comments-in-yajl-upstream.patch
 patch -p0 < contrib/disable-ucmm-as-no-yajl.patch
 patch -p0 < contrib/disable-XScreenSaverQueryExtension.patch
