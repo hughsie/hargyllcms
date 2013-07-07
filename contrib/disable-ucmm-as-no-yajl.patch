@@ -1,11 +1,48 @@
---- h/aconfig.h.new	2013-01-30 12:08:59.746642963 +0000
-+++ h/aconfig.h	2013-01-30 12:09:10.476627117 +0000
-@@ -22,8 +22,4 @@
- # undef UNIX_X11
- #endif
+--- spectro/inst.c.new	2013-07-03 12:29:22.377610031 +0100
++++ spectro/inst.c	2013-07-03 12:30:04.883624886 +0100
+@@ -1486,7 +1486,45 @@ static void hex2bin(char *buf, int len)
  
--#if defined(UNIX) && !defined(__APPLE__)
--#define USE_UCMM		/* Enable the Unix micro CMM */
--#endif
--
- #endif /* __CONFIG_H__ */
+ 
+ 
++#include "ucmm.h"
+ 
++ucmm_error
++ucmm_install_monitor_profile(
++	ucmm_scope scope,
++	unsigned char *edid,
++	int edid_len,
++	char *display_name,
++	char *profile)
++{
++	return ucmm_resource;
++}
++
++ucmm_error
++ucmm_uninstall_monitor_profile(
++	ucmm_scope scope,
++	unsigned char *edid,
++	int edid_len,
++	char *display_name,
++	char *profile)
++{
++	return ucmm_resource;
++}
++
++ucmm_error
++ucmm_get_monitor_profile(
++	unsigned char *edid,
++	int edid_len,
++	char *display_name,
++	char **profile)
++{
++	return ucmm_resource;
++}
++
++char *
++ucmm_error_string(ucmm_error erno)
++{
++	return "colord-not-found";
++}
+ 
+ 
+ 
