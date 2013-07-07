@@ -43,6 +43,7 @@ AC_SUBST([JPEG_LIBS])
 
 AC_CHECK_FUNC([dlopen], [],
               AC_CHECK_LIB([dl], [dlopen], DLOPEN_LIBS="-ldl"))
+AC_SUBST([DLOPEN_LIBS])
 
 AC_CHECK_LIB(X11, XOpenDisplay, X_LIBS="$X_LIBS -lX11")
 AC_CHECK_LIB(Xext, XextFindDisplay, X_LIBS="$X_LIBS -lXext",,-lX11)
