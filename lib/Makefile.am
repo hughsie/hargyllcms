@@ -19,6 +19,8 @@ libargyll_la_SOURCES = ../h/llist.h ../h/sort.h ../h/counters.h ../h/xlist.h ../
 libargyll_la_SOURCES += ../cgats/pars.c ../cgats/pars.h ../cgats/cgats.c ../cgats/cgats.h ../cgats/parsstd.c	\
 	../cgats/cgatsstd.c
 
+libargyll_la_SOURCES += ../ucmm/ucmm.h
+
 libargyll_la_SOURCES += ../gamut/gamut.h ../gamut/gamut.c
 
 libargyll_la_SOURCES += ../gamut/gammap.h ../gamut/gammap.c ../gamut/nearsmth.c ../gamut/nearsmth.h
