@@ -7,8 +7,8 @@ version="Argyll_V1.6.0_beta"
 
 To build stable, do the following:
 
-zipfile="Argyll_V1.6.2_src.zip"
-version="Argyll_V1.6.2"
+zipfile="Argyll_V1.6.3_src.zip"
+version="Argyll_V1.6.3"
 
 Then do:
 

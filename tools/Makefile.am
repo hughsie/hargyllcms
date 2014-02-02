@@ -45,7 +45,7 @@ PROFILE_LDADD = 					\
 	$(TIFF_LIBS) $(X_LIBS)
 
 bin_PROGRAMS += simpprof kodak2ti3 cb2ti3 txt2ti3 splitti3	\
-	profcheck invprofcheck mppprof mppcheck verify colprof printcal	\
+	profcheck invprofcheck mppprof mppcheck colverify colprof printcal	\
 	applycal
 #sepgen
 
@@ -76,8 +76,8 @@ mppprof_LDADD = $(PROFILE_LDADD)
 mppcheck_SOURCES = ../profile/mppcheck.c
 mppcheck_LDADD = $(PROFILE_LDADD)
 
-verify_SOURCES = ../profile/verify.c
-verify_LDADD = $(PROFILE_LDADD)
+colverify_SOURCES = ../profile/colverify.c
+colverify_LDADD = $(PROFILE_LDADD)
 
 colprof_SOURCES = ../profile/colprof.c
 colprof_LDADD = $(PROFILE_LDADD)

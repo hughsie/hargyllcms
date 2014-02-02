@@ -145,7 +145,7 @@ doc_DATA =						\
 	timage.html					\
 	txt2ti3.html					\
 	ucmm.html					\
-	verify.html					\
+	colverify.html					\
 	viewgam.html					\
 	WideGamutColmters.html				\
 	xicclu.html					\
