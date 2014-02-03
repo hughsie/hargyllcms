@@ -86,6 +86,7 @@ libargyll_la_LIBADD =						\
 	$(JPEG_LIBS)						\
 	$(DLOPEN_LIBS)						\
 	$(X_LIBS)						\
+	-lrt							\
 	$(NULL)
 
 libargyll_la_LDFLAGS =						\
