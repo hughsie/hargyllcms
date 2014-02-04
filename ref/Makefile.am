@@ -6,19 +6,23 @@ cht_DATA =						\
 	CMP_DT_003.cht					\
 	ColorChecker.cht				\
 	ColorCheckerDC.cht				\
+	ColorCheckerPassport.cht			\
 	ColorCheckerSG.cht				\
 	Hutchcolor.cht					\
 	i1_RGB_Scan_1.4.cht				\
 	it8.cht						\
 	LaserSoftDCPro.cht				\
 	QPcard_201.cht					\
+	QPcard_202.cht					\
 	SpyderChecker.cht
 
 ciedir = $(datadir)/color/argyll/ref
 cie_DATA =						\
 	CMP_Digital_Target-3.cie			\
 	ColorChecker.cie				\
+	ColorCheckerPassport.cie			\
 	QPcard_201.cie					\
+	QPcard_202.cie					\
 	SpyderChecker.cie
 
 refdir = $(datadir)/color/argyll/ref
@@ -29,6 +33,7 @@ ref_DATA =						\
 	ClayRGB1998.icm					\
 	CMP_Digital_Target-3.ti2			\
 	ColorChecker.ti2				\
+	ColorCheckerDC.ti2				\
 	CRT.ccss					\
 	D50_0.0.sp					\
 	D50_0.1.sp					\
@@ -42,6 +47,10 @@ ref_DATA =						\
 	D50_2.0.sp					\
 	D50_2.5.sp					\
 	D50_3.0.sp					\
+	F1.sp					\
+	F5.sp					\
+	F8.sp					\
+	EBU3213_PAL.icm					\
 	ECI2002R.ti2					\
 	ECI2002.ti2					\
 	example121.sp					\
@@ -56,6 +65,13 @@ ref_DATA =						\
 	linear.cal					\
 	Makefile.am					\
 	Office.sp					\
+	ProPhoto.icm					\
+	ProPhotoLin.icm					\
+	Rec709.icm					\
+	Rec2020.icm					\
+	RefMediumGamut.gam				\
+	SMPTE_RP145_NTSC.icm				\
+	SMPTE431_P3.icm					\
 	SOtele.sp					\
 	sRGB.icm					\
 	strange.cal					\
