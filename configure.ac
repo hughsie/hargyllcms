@@ -68,6 +68,7 @@ AC_CONFIG_FILES([Makefile
                  gamut/Makefile
                  h/Makefile
                  icc/Makefile
+                 imdi/Makefile
                  link/Makefile
                  numlib/Makefile
                  plot/Makefile

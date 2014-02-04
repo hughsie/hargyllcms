@@ -6,6 +6,7 @@ SUBDIRS =						\
 	gamut						\
 	h						\
 	icc						\
+	imdi						\
 	lib						\
 	link						\
 	jcnf						\

@@ -308,3 +308,30 @@ icctest_DEPENDENCIES =
 icctest_SOURCES = ../icc/icctest.c
 icctest_LDADD = ../icc/libargyllicc.la
 
+bin_PROGRAMS += cctiff greytiff
+noinst_PROGRAMS += ctest itest
+
+cctiff_SOURCES = ../imdi/cctiff.c
+cctiff_LDADD =   					\
+	../lib/libargyll.la 			\
+	../icc/libargyllicc.la			\
+	../imdi/libimdi.la				\
+	$(TIFF_LIBS) $(JPEG_LIBS)
+
+greytiff_SOURCES = ../imdi/greytiff.c
+greytiff_LDADD =   					\
+	../lib/libargyll.la 			\
+	../icc/libargyllicc.la			\
+	../imdi/libimdi.la				\
+	$(TIFF_LIBS)
+
+ctest_DEPENDENCIES =
+ctest_SOURCES = ../imdi/ctest.c ../imdi/cgen.c
+ctest_LDADD =   					\
+	../imdi/libimdi.la
+
+itest_DEPENDENCIES =
+itest_SOURCES = ../imdi/itest.c ../imdi/refi.c
+itest_LDADD =   					\
+	../lib/libargyll.la   			\
+	../imdi/libimdi.la
