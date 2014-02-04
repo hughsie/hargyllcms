@@ -69,7 +69,6 @@ ref_DATA =						\
 	ProPhotoLin.icm					\
 	Rec709.icm					\
 	Rec2020.icm					\
-	RefMediumGamut.gam				\
 	SMPTE_RP145_NTSC.icm				\
 	SMPTE431_P3.icm					\
 	SOtele.sp					\
