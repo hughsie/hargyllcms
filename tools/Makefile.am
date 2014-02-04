@@ -335,3 +335,4 @@ itest_SOURCES = ../imdi/itest.c ../imdi/refi.c
 itest_LDADD =   					\
 	../lib/libargyll.la   			\
 	../imdi/libimdi.la
+
