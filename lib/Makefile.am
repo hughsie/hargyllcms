@@ -10,7 +10,7 @@ AM_CFLAGS = -DUNIX -I $(top_srcdir)/cgats -I$(top_srcdir)/gamut		\
     -DENABLE_USB							\
     -DENABLE_FAST_SERIAL						\
     -DENABLE_SERIAL							\
-    $(USB_CFLAGS) $(TIFF_CFLAGS)
+    $(USB_CFLAGS) $(PNG_CFLAGS) $(TIFF_CFLAGS)
 
 lib_LTLIBRARIES = libargyll.la
 

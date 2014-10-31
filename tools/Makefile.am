@@ -8,12 +8,13 @@ AM_CFLAGS = -DUNIX -I $(top_srcdir)/cgats -I$(top_srcdir)/gamut		\
     -DNATIVE_USB							\
     -DENABLE_USB							\
     -DENABLE_SERIAL							\
+    $(PNG_CFLAGS)							\
     $(TIFF_CFLAGS)
 
 bin_PROGRAMS =
 check_PROGRAMS =
 
-GAMUT_LDADD =  ../lib/libargyll.la ../icc/libargyllicc.la
+GAMUT_LDADD =  ../lib/libargyll.la ../icc/libargyllicc.la $(PNG_LIBS)
 
 bin_PROGRAMS += viewgam
 viewgam_SOURCES = ../gamut/viewgam.c
@@ -42,7 +43,7 @@ fakegam_LDADD = $(GAMUT_LDADD)
 PROFILE_LDADD = 					\
 	../lib/libargyll.la ../icc/libargyllicc.la		\
 	-lrt			\
-	$(TIFF_LIBS) $(X_LIBS)
+	$(TIFF_LIBS) $(X_LIBS) $(PNG_LIBS)
 
 bin_PROGRAMS += simpprof kodak2ti3 cb2ti3 txt2ti3 splitti3	\
 	profcheck invprofcheck mppprof mppcheck colverify colprof printcal	\
@@ -132,7 +133,7 @@ trnd_SOURCES = ../rspl/trnd.c
 trnd_LDADD = $(RSPL_LDADD)
 
 SCANIN_LDADD =  ../lib/libargyll.la ../icc/libargyllicc.la	\
-	  $(TIFF_LIBS)
+	  $(TIFF_LIBS) $(PNG_LIBS)
 
 bin_PROGRAMS += scanin
 
@@ -141,7 +142,7 @@ scanin_LDADD = $(SCANIN_LDADD)
 
 SPECTRO_LDADD =    	\
 	 ../lib/libargyll.la $(X_LIBS) $(YAJL_LIBS)		\
-	 ../icc/libargyllicc.la -lrt -ldl
+	 ../icc/libargyllicc.la -lrt -ldl $(PNG_LIBS)
 
 
 bin_PROGRAMS += synthcal dispwin dispread dispcal fakeread synthread	\
@@ -197,7 +198,7 @@ ccxxmake_LDADD = $(SPECTRO_LDADD)
 
 TARGET_LDADD =   	\
 	../icc/libargyllicc.la  	\
-	../lib/libargyll.la $(TIFF_LIBS)
+	../lib/libargyll.la $(TIFF_LIBS) $(PNG_LIBS)
 
 bin_PROGRAMS += targen printtarg
 
@@ -214,7 +215,7 @@ XICC_LDADD =   					\
 	../icc/libargyllicc.la			\
 	-lrt		\
 	-lz		\
-	$(TIFF_LIBS) $(JPEG_LIBS) $(X_LIBS)
+	$(TIFF_LIBS) $(JPEG_LIBS) $(X_LIBS) $(PNG_LIBS)
 
 bin_PROGRAMS += fakeCMY iccgamut mpplu revfix tiffgamut xicclu	\
 	extracticc extractttag specplot ccttest
@@ -252,7 +253,7 @@ ccttest_LDADD = $(XICC_LDADD)
 
 LINK_LDADD =  			\
 	 ../icc/libargyllicc.la 	\
-	../lib/libargyll.la $(X_LIBS) $(TIFF_LIBS)
+	../lib/libargyll.la $(X_LIBS) $(TIFF_LIBS) $(PNG_LIBS)
 
 bin_PROGRAMS += collink pathplot
 
@@ -264,7 +265,7 @@ pathplot_LDADD = $(LINK_LDADD)
 
 TWEAK_LDADD =  			\
 	 ../icc/libargyllicc.la 	\
-	../lib/libargyll.la $(TIFF_LIBS)
+	../lib/libargyll.la $(TIFF_LIBS) $(PNG_LIBS)
 
 bin_PROGRAMS += refine
 
@@ -320,14 +321,14 @@ cctiff_LDADD =   					\
 	../lib/libargyll.la 			\
 	../icc/libargyllicc.la			\
 	../imdi/libimdi.la				\
-	$(TIFF_LIBS) $(JPEG_LIBS)
+	$(TIFF_LIBS) $(JPEG_LIBS) $(PNG_LIBS)
 
 greytiff_SOURCES = ../imdi/greytiff.c
 greytiff_LDADD =   					\
 	../lib/libargyll.la 			\
 	../icc/libargyllicc.la			\
 	../imdi/libimdi.la				\
-	$(TIFF_LIBS)
+	$(TIFF_LIBS) $(PNG_LIBS)
 
 ctest_DEPENDENCIES =
 ctest_SOURCES = ../imdi/ctest.c ../imdi/cgen.c
@@ -338,5 +339,5 @@ itest_DEPENDENCIES =
 itest_SOURCES = ../imdi/itest.c ../imdi/refi.c
 itest_LDADD =   					\
 	../lib/libargyll.la   			\
-	../imdi/libimdi.la
+	../imdi/libimdi.la $(PNG_LIBS)
 
