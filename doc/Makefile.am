@@ -18,7 +18,7 @@ doc_DATA =						\
 	chartread.html					\
 	Chroma4.jpg					\
 	cht_format.html					\
-	CMP_Digital_Target-3.jpg			\
+	CMP_Digital_Target-4.jpg			\
 	CMP_DT_003.jpg					\
 	collink.html					\
 	colorchecker.jpg				\

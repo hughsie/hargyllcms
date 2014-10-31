@@ -2,7 +2,7 @@
 
 chtdir = $(datadir)/color/argyll/ref
 cht_DATA =						\
-	CMP_Digital_Target-3.cht			\
+	CMP_Digital_Target-4.cht			\
 	CMP_DT_003.cht					\
 	ColorChecker.cht				\
 	ColorCheckerDC.cht				\
@@ -18,7 +18,7 @@ cht_DATA =						\
 
 ciedir = $(datadir)/color/argyll/ref
 cie_DATA =						\
-	CMP_Digital_Target-3.cie			\
+	CMP_Digital_Target-4.cie			\
 	ColorChecker.cie				\
 	ColorCheckerPassport.cie			\
 	QPcard_201.cie					\
@@ -31,7 +31,7 @@ ref_DATA =						\
 	ccxx.ti1					\
 	CIE_C.sp					\
 	ClayRGB1998.icm					\
-	CMP_Digital_Target-3.ti2			\
+	CMP_Digital_Target-4.ti2			\
 	ColorChecker.ti2				\
 	ColorCheckerDC.ti2				\
 	CRT.ccss					\
