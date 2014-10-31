@@ -93,7 +93,7 @@ applycal_LDADD = $(PROFILE_LDADD)
 #sepgen_LDADD = $(PROFILE_LDADD)
 
 
-RENDER_LDADD =  ../lib/libargyll.la ../icc/libargyllicc.la $(TIFF_LIBS)
+RENDER_LDADD =  ../lib/libargyll.la ../icc/libargyllicc.la $(TIFF_LIBS) $(PNG_LIBS)
 
 check_PROGRAMS += timage
 
@@ -101,7 +101,7 @@ timage_SOURCES = ../render/timage.c
 timage_LDADD = $(RENDER_LDADD)
 
 RSPL_LDADD =  ../lib/libargyll.la 	\
-	 $(X_LIBS) $(TIFF_LIBS) ../icc/libargyllicc.la
+	 $(X_LIBS) $(TIFF_LIBS) $(PNG_LIBS) ../icc/libargyllicc.la
 
 check_PROGRAMS += revbench c1 c1df t2d t2ddf t3d t3ddf tnd trnd
 
@@ -272,7 +272,7 @@ bin_PROGRAMS += refine
 refine_SOURCES = ../tweak/refine.c
 refine_LDADD = $(TWEAK_LDADD)
 
-NUMLIB_LDADD = ../lib/libargyll.la ../icc/libargyllicc.la
+NUMLIB_LDADD = ../lib/libargyll.la ../icc/libargyllicc.la $(PNG_LIBS)
 
 check_PROGRAMS += dnsqtest tpowell tdhsx LUtest svdtest zbrenttest	\
 	soboltest

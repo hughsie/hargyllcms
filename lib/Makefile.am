@@ -49,9 +49,12 @@ libargyll_la_SOURCES += ../spectro/inst.h ../spectro/inst.c ../spectro/dtp20.c .
 	../spectro/dtp22.h ../spectro/dtp41.c ../spectro/dtp41.h ../spectro/dtp51.c ../spectro/dtp51.h ../spectro/dtp92.c ../spectro/dtp92.h		\
 	../spectro/i1disp.c ../spectro/i1disp.h ../spectro/i1pro.c ../spectro/i1pro.h ../spectro/i1pro_imp.c ../spectro/i1pro_imp.h	\
 	../spectro/munki.c ../spectro/munki_imp.c ../spectro/ss.c ../spectro/ss.h ../spectro/ss_imp.c ../spectro/ss_imp.h ../spectro/hcfr.c ../spectro/hcfr.h	\
-	../spectro/spyd2.c ../spectro/spyd2.h ../spectro/spyd2setup.h ../spectro/spyd2PLD.h ../spectro/huey.c ../spectro/huey.h	\
+	../spectro/spyd2.c ../spectro/spyd2.h ../spectro/huey.c ../spectro/huey.h	\
 	../spectro/usbio.c ../spectro/iusb.h ../spectro/hidio.c ../spectro/pollem.h ../spectro/icoms.h ../spectro/icoms.c ../spectro/conv.h ../spectro/usbio.h	\
-	../spectro/hidio.h ../spectro/munki.h ../spectro/munki_imp.h ../spectro/colorhug.c ../spectro/colorhug.h	\
+	../spectro/hidio.h ../spectro/munki.h ../spectro/munki_imp.h \
+	../spectro/colorhug.c ../spectro/colorhug.h	\
+	../spectro/kleink10.c ../spectro/kleink10.h	\
+	../spectro/disptechs.c ../spectro/disptechs.h	\
 	../spectro/aglob.c ../spectro/aglob.h
 
 # include'd into .c files, urgh
@@ -71,6 +74,7 @@ libargyll_la_SOURCES += ../xicc/xicc.h ../xicc/xicc.c ../xicc/xlutfix.c ../xicc/
 	../xicc/xdevlin.c ../xicc/xdevlin.h ../xicc/xcam.c ../xicc/xcam.h ../xicc/cam97s3.c ../xicc/cam97s3.h	\
 	../xicc/cam02.c ../xicc/cam02.h ../xicc/mpp.c ../xicc/xfit.c ../xicc/xfit.h ../xicc/moncurve.c ../xicc/moncurve.h	\
 	../xicc/mpp.h ../xicc/xdgb.c ../xicc/xdgb.h ../xicc/xcal.c ../xicc/xcal.h ../xicc/xcolorants.c ../xicc/xcolorants.h	\
+	../xicc/bt1886.h ../xicc/bt1886.c	\
 	../xicc/ccmx.c ../xicc/ccmx.h ../xicc/ccss.c ../xicc/ccss.h
 
 libargyll_la_SOURCES += ../xicc/xutils.h ../xicc/xutils.c
@@ -78,6 +82,7 @@ libargyll_la_SOURCES += ../xicc/iccjpeg.h ../xicc/iccjpeg.c
 
 libargyll_la_SOURCES += ../numlib/numlib.h ../numlib/numsup.c ../numlib/numsup.h ../numlib/dnsq.c ../numlib/dnsq.h	\
 	../numlib/powell.c ../numlib/powell.h ../numlib/dhsx.c ../numlib/dhsx.h ../numlib/ludecomp.c ../numlib/ludecomp.h ../numlib/svd.c	\
+	../numlib/ui.h ../numlib/ui.c	\
 	../numlib/svd.h ../numlib/zbrent.c ../numlib/zbrent.h ../numlib/rand.c ../numlib/rand.h ../numlib/sobol.c ../numlib/sobol.h ../numlib/aatree.c ../numlib/aatree.h
 
 libargyll_la_LIBADD =						\

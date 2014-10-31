@@ -1,0 +1,413 @@
+--- spectro/ccxxmake.c.old	2014-10-31 14:18:37.445313938 +0000
++++ spectro/ccxxmake.c	2014-10-31 14:19:56.487691593 +0000
+@@ -68,7 +68,9 @@
+ #include "conv.h"
+ #include "icoms.h"
+ #include "inst.h"
++#ifdef HAVE_CHROMECAST
+ #include "ccast.h"
++#endif
+ #include "dispwin.h"
+ #include "ui.h"
+ #include "webwin.h"
+@@ -151,6 +153,7 @@ usage(int flag, char *diag, ...) {
+ 	free_disppaths(dp);
+ 	fprintf(stderr," -dweb[:port]      Display via a web server at port (default 8080)\n");
+ 	fprintf(stderr," -dcc[:n]          Display via n'th ChromeCast (default 1, ? for list)\n");
++#ifdef HAVE_CHROMECAST
+ 	if (flag & 0x001) {
+ 		ccast_id **ids;
+ 		if ((ids = get_ccids()) == NULL) {
+@@ -166,6 +169,7 @@ usage(int flag, char *diag, ...) {
+ 			}
+ 		}
+ 	}
++#endif
+ #ifdef NT
+ 	fprintf(stderr," -dmadvr           Display via MadVR Video Renderer\n");
+ #endif
+@@ -241,8 +245,10 @@ int main(int argc, char *argv[]) {
+ 	int noinitcal = 0;					/* Disable initial calibration */
+ 	int webdisp = 0;					/* NZ for web display, == port number */
+ 	int ccdisp = 0;			 			/* NZ for ChromeCast, == list index */
++#ifdef HAVE_CHROMECAST
+ 	ccast_id **ccids = NULL;
+ 	ccast_id *ccid = NULL;
++#endif
+ #ifdef NT
+ 	int madvrdisp = 0;					/* NZ for MadVR display */
+ #endif
+@@ -1021,6 +1027,7 @@ int main(int argc, char *argv[]) {
+ 			displayname = strdup("fake display");
+ 		}
+ 
++#ifdef HAVE_CHROMECAST
+ 		/* If we've requested ChromeCast, look it up */
+ 		if (ccdisp) {
+ 			if ((ccids = get_ccids()) == NULL)
+@@ -1033,7 +1040,7 @@ int main(int argc, char *argv[]) {
+ 				error("Chosen ChromCasts (%d) is outside list (1..%d)\n",ccdisp,i);
+ 			ccid = ccids[ccdisp-1];
+ 		}
+-
++#endif
+ 		/* Create grid of device test values */
+ 		{
+ 			int j;
+@@ -1248,7 +1255,10 @@ int main(int argc, char *argv[]) {
+ 				                     fc, dtype, 1, tele, nadaptive,
+ 				                     noinitcal, 0, highres, refrate, 3, NULL, NULL,
+ 					                 NULL, 0, disp, 0, blackbg,
+-				                     override, webdisp, ccid,
++				                     override, webdisp,
++#ifdef HAVE_CHROMECAST
++				                     ccid,
++#endif
+ #ifdef NT
+ 					                 madvrdisp,
+ #endif
+@@ -1489,7 +1499,9 @@ int main(int argc, char *argv[]) {
+ 		free(displayname);
+ 		if (icmps != NULL)
+ 			icmps->del(icmps);
++#ifdef HAVE_CHROMECAST
+ 		free_ccids(ccids);
++#endif
+ 	}
+ 
+ #ifdef DEBUG
+--- spectro/chartread.c.old	2014-10-31 14:17:25.823877854 +0000
++++ spectro/chartread.c	2014-10-31 14:17:46.543714715 +0000
+@@ -79,7 +79,9 @@
+ #include "ccss.h"
+ #include "dispwin.h"
+ #include "ui.h"
++#ifdef HAVE_CHROMECAST
+ #include "ccast.h"
++#endif
+ #include "dispsup.h"
+ #include "alphix.h"
+ #include "sort.h"
+--- spectro/dispcal.c.old	2014-10-31 14:14:08.610453418 +0000
++++ spectro/dispcal.c	2014-10-31 14:16:06.973501030 +0000
+@@ -124,7 +124,9 @@
+ #include "ccss.h"
+ #include "dispwin.h"
+ #include "ui.h"
++#ifdef HAVE_CHROMECAST
+ #include "ccast.h"
++#endif
+ #include "dispsup.h"
+ #include "rspl.h"
+ #include "moncurve.h"
+@@ -1520,6 +1522,7 @@ void usage(int flag, char *diag, ...) {
+ 	free_disppaths(dp);
+ 	fprintf(stderr," -dweb[:port]         Display via a web server at port (default 8080)\n");
+ 	fprintf(stderr," -dcc[:n]             Display via n'th ChromeCast (default 1, ? for list)\n");
++#ifdef HAVE_CHROMECAST
+ 	if (flag & 0x001) {
+ 		ccast_id **ids;
+ 		if ((ids = get_ccids()) == NULL) {
+@@ -1535,6 +1538,7 @@ void usage(int flag, char *diag, ...) {
+ 			}
+ 		}
+ 	}
++#endif
+ #ifdef NT
+ 	fprintf(stderr," -dmadvr              Display via MadVR Video Renderer\n");
+ #endif
+@@ -1677,8 +1681,10 @@ int main(int argc, char *argv[]) {
+ 	int nver = 0;						/* Number of verify passes after refinement */
+ 	int webdisp = 0;					/* NZ for web display, == port number */
+ 	int ccdisp = 0;			 			/* NZ for ChromeCast, == list index */
++#ifdef HAVE_CHROMECAST
+ 	ccast_id **ccids = NULL;
+ 	ccast_id *ccid = NULL;
++#endif
+ #ifdef NT
+ 	int madvrdisp = 0;					/* NZ for madvr display */
+ #endif
+@@ -2249,6 +2255,7 @@ int main(int argc, char *argv[]) {
+ 	if ((ipath = icmps->get_path(icmps, comport)) == NULL)
+ 		error("No instrument at port %d",comport);
+ 
++#ifdef HAVE_CHROMECAST
+ 	/* If we've requested ChromeCast, look it up */
+ 	if (ccdisp) {
+ 		if ((ccids = get_ccids()) == NULL)
+@@ -2261,10 +2268,13 @@ int main(int argc, char *argv[]) {
+ 			error("Chosen ChromCasts (%d) is outside list (1..%d)\n",ccdisp,i);
+ 		ccid = ccids[ccdisp-1];
+ 	}
+-
++#endif
+ 	if (docalib) {
+ 		if ((rv = disprd_calibration(ipath, fc, dtype, 0, tele, nadaptive, nocal, disp,
+-		                             webdisp, ccid,
++		                             webdisp,
++#ifdef HAVE_CHROMECAST
++		                             ccid,
++#endif
+ #ifdef NT
+ 			                         madvrdisp,
+ #endif
+@@ -2306,7 +2316,10 @@ int main(int argc, char *argv[]) {
+ 	/* Get ready to do some readings */
+ 	if ((dr = new_disprd(&errc, ipath, fc, dtype, 0, tele, nadaptive, nocal, noplace,
+ 	                     highres, refrate, native, &noramdac, &nocm, NULL, 0,
+-		                 disp, out_tvenc, blackbg, override, webdisp, ccid,
++		                 disp, out_tvenc, blackbg, override, webdisp,
++#ifdef HAVE_CHROMECAST
++		                 ccid,
++#endif
+ #ifdef NT
+ 		                 madvrdisp,
+ #endif
+@@ -5876,7 +5889,9 @@ int main(int argc, char *argv[]) {
+ 	}
+ 
+ 	free_a_disppath(disp);
++#ifdef HAVE_CHROMECAST
+ 	free_ccids(ccids);
++#endif
+ 
+ 	return 0;
+ }
+--- spectro/dispread.c.old	2014-10-31 14:11:37.050672918 +0000
++++ spectro/dispread.c	2014-10-31 14:13:53.444575448 +0000
+@@ -61,7 +61,9 @@
+ #include "inst.h"
+ #include "ccmx.h"
+ #include "ccss.h"
++#ifdef HAVE_CHROMECAST
+ #include "ccast.h"
++#endif
+ #include "dispwin.h"
+ #include "dispsup.h"
+ #include "sort.h"
+@@ -138,6 +140,7 @@ void usage(int flag, char *diag, ...) {
+ 	free_disppaths(dp);
+ 	fprintf(stderr," -dweb[:port]         Display via a web server at port (default 8080)\n");
+ 	fprintf(stderr," -dcc[:n]             Display via n'th ChromeCast (default 1, ? for list)\n");
++#ifdef HAVE_CHROMECAST
+ 	if (flag & 0x001) {
+ 		ccast_id **ids;
+ 		if ((ids = get_ccids()) == NULL) {
+@@ -153,6 +156,7 @@ void usage(int flag, char *diag, ...) {
+ 			}
+ 		}
+ 	}
++#endif
+ #ifdef NT
+ 	fprintf(stderr," -dmadvr              Display via MadVR Video Renderer\n");
+ #endif
+@@ -252,8 +256,10 @@ int main(int argc, char *argv[]) {
+ 	icxObserverType obType = icxOT_default;
+ 	int webdisp = 0;					/* NZ for web display, == port number */
+ 	int ccdisp = 0;			 			/* NZ for ChromeCast, == list index */
++#ifdef HAVE_CHROMECAST
+ 	ccast_id **ccids = NULL;
+ 	ccast_id *ccid = NULL;
++#endif
+ #ifdef NT
+ 	int madvrdisp = 0;					/* NZ for MadVR display */
+ #endif
+@@ -664,6 +670,7 @@ int main(int argc, char *argv[]) {
+ 	if ((ipath = icmps->get_path(icmps, comport)) == NULL)
+ 		error("No instrument at port %d",comport);
+ 
++#ifdef HAVE_CHROMECAST
+ 	/* If we've requested ChromeCast, look it up */
+ 	if (ccdisp) {
+ 		if ((ccids = get_ccids()) == NULL)
+@@ -676,10 +683,14 @@ int main(int argc, char *argv[]) {
+ 			error("Chosen ChromCasts (%d) is outside list (1..%d)\n",ccdisp,i);
+ 		ccid = ccids[ccdisp-1];
+ 	}
++#endif
+ 
+ 	if (docalib) {
+ 		if ((rv = disprd_calibration(ipath, fc, dtype, 0, tele, nadaptive, noautocal, 
+-			                         disp, webdisp, ccid,
++			                         disp, webdisp,
++#ifdef HAVE_CHROMECAST
++			                         ccid,
++#endif
+ #ifdef NT
+ 			                         madvrdisp,
+ #endif
+@@ -897,7 +908,10 @@ int main(int argc, char *argv[]) {
+ 
+ 	if ((dr = new_disprd(&errc, ipath, fc, dtype, 0, tele, nadaptive, noautocal, noplace,
+ 	                     highres, refrate, native, &noramdac, &nocm, cal, ncal, disp,
+-		                 out_tvenc, blackbg, override, webdisp, ccid,
++		                 out_tvenc, blackbg, override, webdisp,
++#ifdef HAVE_CHROMECAST
++						 ccid,
++#endif
+ #ifdef NT
+ 						 madvrdisp,
+ #endif
+@@ -1115,7 +1129,9 @@ int main(int argc, char *argv[]) {
+ 	ocg->del(ocg);		/* Clean up */
+ 	icg->del(icg);		/* Clean up */
+ 	free_a_disppath(disp);
++#ifdef HAVE_CHROMECAST
+ 	free_ccids(ccids);
++#endif
+ 
+ 	return 0;
+ }
+--- spectro/dispsup.c.old	2014-10-31 14:05:24.888702074 +0000
++++ spectro/dispsup.c	2014-10-31 14:08:35.804131287 +0000
+@@ -43,8 +43,10 @@
+ #include "spyd2.h"
+ #include "dispwin.h"
+ #include "webwin.h"
++#ifdef HAVE_CHROMECAST
+ #include "ccast.h"
+ #include "ccwin.h"
++#endif
+ #ifdef NT
+ # include "madvrwin.h"
+ #endif
+@@ -117,6 +119,7 @@ inst_code setup_display_calibrate(
+ 						a1logd(p->log,1,"inst_handle_calibrate failed to create test window 0x%x\n",inst_other_error);
+ 						return inst_other_error; 
+ 					}
++#ifdef HAVE_CHROMECAST
+ 				} else if (dwi->ccid != NULL) {
+ 					if ((dwi->_dw = new_ccwin(dwi->ccid, dwi->hpatsize, dwi->vpatsize,
+ 						         dwi->ho, dwi->vo, 0, 0, NULL, NULL, dwi->out_tvenc, dwi->blackbg,
+@@ -124,6 +127,7 @@ inst_code setup_display_calibrate(
+ 						a1logd(p->log,1,"inst_handle_calibrate failed to create test window 0x%x\n",inst_other_error);
+ 						return inst_other_error; 
+ 					}
++#endif
+ #ifdef NT
+ 				} else if (dwi->madvrdisp != 0) {
+ 					if ((dwi->_dw = new_madvrwin(dwi->hpatsize, dwi->vpatsize,
+@@ -210,7 +214,9 @@ int nadaptive,			/* NZ for non-adaptive
+ int noinitcal,			/* NZ to disable initial instrument calibration */
+ disppath *disp,			/* display to calibrate. */
+ int webdisp,			/* If nz, port number for web display */
++#ifdef HAVE_CHROMECAST
+ ccast_id *ccid,	 		/* non-NULL for ChromeCast */
++#endif
+ #ifdef NT
+ int madvrdisp,		/* NZ for MadVR display */
+ #endif
+@@ -236,7 +242,9 @@ a1log *log				/* Verb, debug & error log
+ 
+ 	memset((void *)&dwi, 0, sizeof(disp_win_info));
+ 	dwi.webdisp = webdisp; 
++#ifdef HAVE_CHROMECAST
+ 	dwi.ccid = ccid; 
++#endif
+ #ifdef NT
+ 	dwi.madvrdisp = madvrdisp; 
+ #endif
+@@ -2121,7 +2129,9 @@ int out_tvenc,		/* 1 = use RGB Video Lev
+ int blackbg,		/* NZ if whole screen should be filled with black */
+ int override,		/* Override_redirect on X11 */
+ int webdisp,        /* If nz, port number for web color display */
++#ifdef HAVE_CHROMECAST
+ ccast_id *ccid,	 	/* non-NULL for ChromeCast */
++#endif
+ #ifdef NT
+ int madvrdisp,		/* NZ for MadVR display */
+ #endif
+@@ -2320,6 +2330,7 @@ a1log *log      	/* Verb, debug & error
+ 			if (errc != NULL) *errc = 3;
+ 			return NULL;
+ 		}
++#ifdef HAVE_CHROMECAST
+ 	} else if (ccid != NULL) {
+ 		if ((p->dw = new_ccwin(ccid, hpatsize, vpatsize, ho, vo, 0, native, noramdac, nocm,
+ 			                    uout_tvenc, 0, p->log->verb, p->log->debug)) == NULL) {
+@@ -2328,6 +2339,7 @@ a1log *log      	/* Verb, debug & error
+ 			if (errc != NULL) *errc = 3;
+ 			return NULL;
+ 		}
++#endif
+ #ifdef NT
+ 	} else if (madvrdisp != 0) {
+ 		if (out_tvenc) {
+--- spectro/dispsup.h.old	2014-10-31 14:06:53.006970389 +0000
++++ spectro/dispsup.h	2014-10-31 14:07:49.861500956 +0000
+@@ -20,7 +20,9 @@
+ /* Struct used for calibration */
+ struct _disp_win_info {
+ 	int webdisp;			/* nz if web display is to be used */
++#ifdef HAVE_CHROMECAST
+ 	ccast_id *ccid;	 		/* non-NULL for ChromeCast */
++#endif
+ #ifdef NT
+ 	int madvrdisp;			/* NZ for MadVR display */
+ #endif
+@@ -56,7 +58,9 @@ int nadaptive,		/* NZ for non-adaptive m
+ int noinitcal,		/* NZ to disable initial instrument calibration */
+ disppath *screen,	/* Screen to calibrate. */
+ int webdisp,		/* If nz, port number for web display */
++#ifdef HAVE_CHROMECAST
+ ccast_id *ccid,		/* non-NULL for ChromeCast */
++#endif
+ #ifdef NT
+ int madvrdisp,		/* NZ for MadVR display */
+ #endif
+@@ -248,7 +252,9 @@ int out_tvenc,		/* 1 = use RGB Video Lev
+ int blackbg,		/* NZ if whole screen should be filled with black */
+ int override,		/* Override_redirect on X11 */
+ int webdisp,		/* If nz, port number for web display */
++#ifdef HAVE_CHROMECAST
+ ccast_id *ccid,		/* non-NULL for ChromeCast */
++#endif
+ #ifdef NT
+ int madvrdisp,		/* NZ for MadVR display */
+ #endif
+--- spectro/dispwin.c.old	2014-10-31 14:02:55.921939011 +0000
++++ spectro/dispwin.c	2014-10-31 14:11:12.978866607 +0000
+@@ -57,8 +57,10 @@
+ #include "dispwin.h"
+ #include "ui.h"
+ #include "webwin.h"
++#ifdef HAVE_CHROMECAST
+ #include "ccast.h"
+ #include "ccwin.h"
++#endif
+ #ifdef NT
+ # include "madvrwin.h"
+ #endif
+@@ -5403,6 +5405,7 @@ static void usage(int flag, char *diag,
+ 	free_disppaths(dp);
+ 	fprintf(stderr," -dweb[:port]         Display via web server at port (default 8080)\n");
+ 	fprintf(stderr," -dcc[:n]             Display via n'th ChromeCast (default 1, ? for list)\n");
++#ifdef HAVE_CHROMECAST
+ 	if (flag & 0x001) {
+ 		ccast_id **ids;
+ 		if ((ids = get_ccids()) == NULL) {
+@@ -5418,6 +5421,7 @@ static void usage(int flag, char *diag,
+ 			}
+ 		}
+ 	}
++#endif
+ #ifdef NT
+ 	fprintf(stderr," -dmadvr              Display via MadVR Video Renderer\n");
+ #endif
+@@ -5761,6 +5765,7 @@ main(int argc, char *argv[]) {
+ 			return -1;
+ 		}
+ 
++#ifdef HAVE_CHROMECAST
+ 	} else if (ccdisp != 0) {
+ 		ccast_id **ids;
+ 		if ((ids = get_ccids()) == NULL) {
+@@ -5786,7 +5791,7 @@ main(int argc, char *argv[]) {
+ 			return -1;
+ 		}
+ 		free_ccids(ids);
+-
++#endif
+ #ifdef NT
+ 	} else if (madvrdisp != 0) {
+ 		if (out_tvenc) {
