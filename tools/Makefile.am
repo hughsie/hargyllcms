@@ -181,6 +181,7 @@ average_LDADD = $(SPECTRO_LDADD)
 oeminst_SOURCES =			\
 	../spectro/LzmaDec.h		\
 	../spectro/LzmaTypes.h		\
+	../spectro/inflate.c		\
 	../spectro/oemarch.c		\
 	../spectro/oemarch.h		\
 	../spectro/oeminst.c		\
