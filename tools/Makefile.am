@@ -145,7 +145,7 @@ SPECTRO_LDADD =    	\
 
 
 bin_PROGRAMS += synthcal dispwin dispread dispcal fakeread synthread	\
-	chartread spotread spec2cie average oeminst ccxxmake
+	chartread illumread spotread spec2cie average oeminst ccxxmake
 
 synthcal_SOURCES = ../spectro/synthcal.c
 synthcal_LDADD = $(SPECTRO_LDADD)
@@ -168,6 +168,9 @@ synthread_LDADD = $(SPECTRO_LDADD)
 
 chartread_SOURCES = ../spectro/chartread.c
 chartread_LDADD = $(SPECTRO_LDADD)
+
+illumread_SOURCES = ../spectro/illumread.c
+illumread_LDADD = $(SPECTRO_LDADD)
 
 spotread_SOURCES = ../spectro/spotread.c
 spotread_LDADD = $(SPECTRO_LDADD)
