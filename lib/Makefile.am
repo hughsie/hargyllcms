@@ -55,7 +55,8 @@ libargyll_la_SOURCES += ../spectro/inst.h ../spectro/inst.c ../spectro/dtp20.c .
 	../spectro/colorhug.c ../spectro/colorhug.h	\
 	../spectro/kleink10.c ../spectro/kleink10.h	\
 	../spectro/disptechs.c ../spectro/disptechs.h	\
-	../spectro/aglob.c ../spectro/aglob.h
+	../spectro/aglob.c ../spectro/aglob.h		\
+	../spectro/ex1.c ../spectro/ex1.h
 
 # include'd into .c files, urgh
 EXTRA_DIST = ../spectro/usbio_lx.c ../spectro/icoms_ux.c

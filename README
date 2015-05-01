@@ -3,12 +3,12 @@ See Readme.txt for the ArgyllCMS upstream file.
 To build development, do the following:
 
 zipfile="Argyll_dev_src.zip"
-version="Argyll_V1.7.0_beta"
+version="Argyll_V1.7.1_beta"
 
 To build stable, do the following:
 
-zipfile="Argyll_V1.6.3_src.zip"
-version="Argyll_V1.6.3"
+zipfile="Argyll_V1.7.0_src.zip"
+version="Argyll_V1.7.0"
 
 Then do:
 
@@ -20,6 +20,8 @@ patch -p1 < contrib/no-comments-in-yajl-upstream.patch
 patch -p0 < contrib/disable-ucmm-as-no-yajl.patch
 patch -p0 < contrib/disable-XScreenSaverQueryExtension.patch
 patch -p0 < contrib/disable-chromecast-support.patch
+patch -p0 < contrib/fix-non-chromecast-build.patch
+patch -p0 < contrib/no-ATTRIBUTE_NORETURN.patch
 ./autogen.sh
 make
 make distcheck
