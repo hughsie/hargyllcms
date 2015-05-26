@@ -92,6 +92,7 @@ libargyll_la_LIBADD =						\
 	$(JPEG_LIBS)						\
 	$(DLOPEN_LIBS)						\
 	$(X_LIBS)						\
+	$(PNG_LIBS)						\
 	-lrt							\
 	$(NULL)
 
