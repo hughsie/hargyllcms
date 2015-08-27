@@ -34,3 +34,45 @@
  #ifdef NT
  			                         madvrdisp,
  #endif
+--- spectro/ccxxmake.c.old	2015-08-27 19:56:13.378834252 +0100
++++ spectro/ccxxmake.c	2015-08-27 19:55:09.727416670 +0100
+@@ -1257,7 +1257,10 @@ int main(int argc, char *argv[]) {
+ 				                     fc, dtype, sdtype, 1, tele, nadaptive,
+ 				                     noinitcal, 0, highres, refrate, 3, NULL, NULL,
+ 					                 NULL, 0, disp, 0, fullscreen,
+-				                     override, webdisp, ccid,
++				                     override, webdisp,
++#ifdef HAVE_CHROMECAST
++				                     ccid,
++#endif
+ #ifdef NT
+ 					                 madvrdisp,
+ #endif
+--- spectro/dispcal.c.old	2015-08-27 19:56:03.029926513 +0100
++++ spectro/dispcal.c	2015-08-27 19:54:35.101735079 +0100
+@@ -2349,7 +2349,10 @@ int main(int argc, char *argv[]) {
+ 	/* Get ready to do some readings */
+ 	if ((dr = new_disprd(&errc, ipath, fc, dtype, -1, 0, tele, nadaptive, nocal, noplace,
+ 	                     highres, refrate, native, &noramdac, &nocm, NULL, 0,
+-		                 disp, out_tvenc, fullscreen, override, webdisp, ccid,
++		                 disp, out_tvenc, fullscreen, override, webdisp,
++#ifdef HAVE_CHROMECAST
++		                 ccid,
++#endif
+ #ifdef NT
+ 		                 madvrdisp,
+ #endif
+--- spectro/dispread.c.old	2015-08-27 19:53:43.281211607 +0100
++++ spectro/dispread.c	2015-08-27 19:53:52.782124239 +0100
+@@ -924,7 +924,10 @@ int main(int argc, char *argv[]) {
+ 
+ 	if ((dr = new_disprd(&errc, ipath, fc, dtype, -1, 0, tele, nadaptive, noautocal, noplace,
+ 	                     highres, refrate, native, &noramdac, &nocm, cal, ncal, disp,
+-		                 out_tvenc, fullscreen, override, webdisp, ccid,
++		                 out_tvenc, fullscreen, override, webdisp,
++#ifdef HAVE_CHROMECAST
++		                 ccid,
++#endif
+ #ifdef NT
+ 						 madvrdisp,
+ #endif

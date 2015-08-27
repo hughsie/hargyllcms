@@ -1,4 +1,4 @@
-AC_INIT([hargyllcms], [1.7.0])
+AC_INIT([hargyllcms], [1.8.0])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
