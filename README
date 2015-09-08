@@ -3,12 +3,12 @@ See Readme.txt for the ArgyllCMS upstream file.
 To build development, do the following:
 
 zipfile="Argyll_dev_src.zip"
-version="Argyll_V1.8.1_beta"
+version="Argyll_V1.8.3_beta"
 
 To build stable, do the following:
 
-zipfile="Argyll_V1.8.0_src.zip"
-version="Argyll_V1.8.0"
+zipfile="Argyll_V1.8.2_src.zip"
+version="Argyll_V1.8.2"
 
 Then do:
 
