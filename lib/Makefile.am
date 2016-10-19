@@ -56,6 +56,7 @@ libargyll_la_SOURCES += ../spectro/inst.h ../spectro/inst.c ../spectro/dtp20.c .
 	../spectro/kleink10.c ../spectro/kleink10.h	\
 	../spectro/disptechs.c ../spectro/disptechs.h	\
 	../spectro/aglob.c ../spectro/aglob.h		\
+	../spectro/xrga.c ../spectro/xrga.h		\
 	../spectro/rspec.c ../spectro/rspec.h		\
 	../spectro/smcube.c ../spectro/smcube.h ../spectro/cubecal.h	\
 	../spectro/ex1.c ../spectro/ex1.h

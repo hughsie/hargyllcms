@@ -31,4 +31,4 @@ iccrw_LDADD = libargyllicc.la
 lutest_SOURCES = lutest.c
 lutest_LDADD = libargyllicc.la
 
-EXTRA_DIST = License.txt Readme.txt
+EXTRA_DIST = License4.txt Readme.txt

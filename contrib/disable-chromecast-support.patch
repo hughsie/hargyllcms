@@ -411,3 +411,15 @@
  #ifdef NT
  	} else if (madvrdisp != 0) {
  		if (out_tvenc) {
+--- spectro/chartread.c.old	2016-10-19 18:22:29.491055052 +0100
++++ spectro/chartread.c	2016-10-19 18:22:54.118825014 +0100
+@@ -102,7 +102,9 @@
+ #include "ccss.h"
+ #ifndef SALONEINSTLIB
+ #include "dispwin.h"
++#ifdef HAVE_CHROMECAST
+ #include "ccast.h"
++#endif
+ #include "dispsup.h"
+ #endif /* !SALONEINSTLIB */
+ #include "alphix.h"
